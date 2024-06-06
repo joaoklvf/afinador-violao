@@ -1,0 +1,7 @@
+Preciso de 4 comparadores para verificar se está MUITO ABAIXO, POUCO ABAIXO, POUCO ACIMA E MUITO ACIMA
+Se não estiver em nenhuma dessas condições, está correto.
+
+MAIOR QUE POUCO ABAIXO E MENOR QUE POUCO ACIMA = CORRETO.
+
+Descobrir e anotar certinho a frequencia de mi maior e a partir dela, taxar as frequencias dos comparadores acima.
+Verificar nos materiais disponibilizados hoje
