@@ -1,5 +1,9 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="afinador_violao">
+		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_idj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_idj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_idj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_idj.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

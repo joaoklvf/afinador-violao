@@ -20,9 +20,10 @@ USE ieee.std_logic_1164.all;
 
 ENTITY UC IS
     PORT (
+        start : IN STD_LOGIC := '0';
         reset : IN STD_LOGIC := '0';
         clock : IN STD_LOGIC;
-        start : IN STD_LOGIC := '0'
+        load_clear : out STD_LOGIC := '0'
     );
 END UC;
 
@@ -42,7 +43,9 @@ BEGIN
     BEGIN
         IF (reset='1') THEN
             reg_fstate <= state1;
+            load_clear <= '0';
         ELSE
+            load_clear <= '0';
             CASE fstate IS
                 WHEN state1 =>
                     IF ((start = '0')) THEN
@@ -55,6 +58,7 @@ BEGIN
                     END IF;
                 WHEN state2 =>
                     reg_fstate <= state3;
+                    load_clear <= '1';
                 WHEN state3 =>
                     IF ((start = '1')) THEN
                         reg_fstate <= state3;
@@ -64,7 +68,8 @@ BEGIN
                     ELSE
                         reg_fstate <= state3;
                     END IF;
-                WHEN OTHERS => 
+                WHEN OTHERS =>
+                    load_clear <= 'X'; 
                     report "Reach undefined state";
             END CASE;
         END IF;
