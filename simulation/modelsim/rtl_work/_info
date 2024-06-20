@@ -1,0 +1,252 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\aluno\Desktop\afinador-violao-main\simulation\modelsim
+Econtador_sem_overflow
+Z1 w1718252857
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\aluno\Desktop\afinador-violao-main\simulation\modelsim
+Z6 8C:/Users/aluno/Desktop/afinador-violao-main/contador_sem_overflow.vhd
+Z7 FC:/Users/aluno/Desktop/afinador-violao-main/contador_sem_overflow.vhd
+l0
+L6
+VJ=f`0YhJ8T^i7XU?_k6C?0
+Z8 OV;C;10.1d;51
+31
+Z9 !s108 1718404583.968000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/contador_sem_overflow.vhd|
+Z11 !s107 C:/Users/aluno/Desktop/afinador-violao-main/contador_sem_overflow.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 1<Q@kM5^D2>f;@SXQLX<R2
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+DEx4 work 21 contador_sem_overflow 0 22 J=f`0YhJ8T^i7XU?_k6C?0
+l17
+L15
+V1MfQ7_mW9A_JjBU2l?Tg@1
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 b`2UCkK9zEfaDCB1z1obF1
+!i10b 1
+Elpm_compare0
+R1
+R3
+R4
+R5
+Z14 8C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare0.vhd
+Z15 FC:/Users/aluno/Desktop/afinador-violao-main/lpm_compare0.vhd
+l0
+L42
+VNe>O7Xl5ZkT<l_cH;U7c;1
+R8
+31
+Z16 !s108 1718404584.011000
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare0.vhd|
+Z18 !s107 C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare0.vhd|
+R12
+R13
+!s100 `]4Qm90XBVYbbT?n6PcX^1
+!i10b 1
+Asyn
+R3
+R4
+DEx4 work 12 lpm_compare0 0 22 Ne>O7Xl5ZkT<l_cH;U7c;1
+l73
+L51
+VBP29`XzoDCB?c>S9DDmZ00
+R8
+31
+R16
+R17
+R18
+R12
+R13
+!s100 ]6i`hiaG2P]Dz;PAzFQDJ2
+!i10b 1
+Elpm_compare1
+R1
+R3
+R4
+R5
+Z19 8C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare1.vhd
+Z20 FC:/Users/aluno/Desktop/afinador-violao-main/lpm_compare1.vhd
+l0
+L42
+V@j:_1>RUP:Uhle02oI3J40
+R8
+31
+Z21 !s108 1718404584.050000
+Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare1.vhd|
+Z23 !s107 C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare1.vhd|
+R12
+R13
+!s100 bD5MSR5^48ib5km:VBbD22
+!i10b 1
+Asyn
+R3
+R4
+DEx4 work 12 lpm_compare1 0 22 @j:_1>RUP:Uhle02oI3J40
+l73
+L51
+VjVZnQ=ib`l]5iMCM7L:bS0
+R8
+31
+R21
+R22
+R23
+R12
+R13
+!s100 d70[8H]?^aR=X6]?9Yl9J0
+!i10b 1
+Elpm_compare2
+R1
+R3
+R4
+R5
+Z24 8C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare2.vhd
+Z25 FC:/Users/aluno/Desktop/afinador-violao-main/lpm_compare2.vhd
+l0
+L42
+VO7;Go:[eXDAVT@]k[7mkK2
+R8
+31
+Z26 !s108 1718404584.088000
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare2.vhd|
+Z28 !s107 C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare2.vhd|
+R12
+R13
+!s100 bNN2jd`XZMZ^^JM^NAdkR3
+!i10b 1
+Asyn
+R3
+R4
+DEx4 work 12 lpm_compare2 0 22 O7;Go:[eXDAVT@]k[7mkK2
+l73
+L51
+V19@mbCl;I51IRE_8bX^L<1
+R8
+31
+R26
+R27
+R28
+R12
+R13
+!s100 jDUdgQB6F0bX>9:m6UCaS2
+!i10b 1
+Elpm_compare3
+R1
+R3
+R4
+R5
+Z29 8C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare3.vhd
+Z30 FC:/Users/aluno/Desktop/afinador-violao-main/lpm_compare3.vhd
+l0
+L42
+VVX?1AB50PO46`2VM[T^bD3
+R8
+31
+Z31 !s108 1718404584.125000
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare3.vhd|
+Z33 !s107 C:/Users/aluno/Desktop/afinador-violao-main/lpm_compare3.vhd|
+R12
+R13
+!s100 c@D=7l2B1QiSfO^VVVheN3
+!i10b 1
+Asyn
+R3
+R4
+DEx4 work 12 lpm_compare3 0 22 VX?1AB50PO46`2VM[T^bD3
+l73
+L51
+VXDR7>:fl[[z2^9EdMSPdc3
+R8
+31
+R31
+R32
+R33
+R12
+R13
+!s100 M]AM^O@ElMoW6Z^23`3`B0
+!i10b 1
+Esaidasled
+R1
+R3
+R4
+R5
+Z34 8C:/Users/aluno/Desktop/afinador-violao-main/SaidasLed.vhd
+Z35 FC:/Users/aluno/Desktop/afinador-violao-main/SaidasLed.vhd
+l0
+L4
+V?h0]@=K9_[7RTFzB87:G?0
+!s100 Hece<bWaT3XJYec61SLVb1
+R8
+31
+!i10b 1
+Z36 !s108 1718404584.162000
+Z37 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/SaidasLed.vhd|
+Z38 !s107 C:/Users/aluno/Desktop/afinador-violao-main/SaidasLed.vhd|
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 9 saidasled 0 22 ?h0]@=K9_[7RTFzB87:G?0
+l19
+L18
+Vg0a^FU>EFT7hlQWLXbi4j2
+!s100 K9=QQ1;DVjzJ3Ic23LDJY0
+R8
+31
+!i10b 1
+R36
+R37
+R38
+R12
+R13
+Euc
+R1
+R3
+R4
+R5
+Z39 8C:/Users/aluno/Desktop/afinador-violao-main/UC.vhd
+Z40 FC:/Users/aluno/Desktop/afinador-violao-main/UC.vhd
+l0
+L21
+V?WPf?SL6aUK_GnD0;>R7[0
+R8
+31
+Z41 !s108 1718404583.900000
+Z42 !s90 -reportprogress|300|-93|-work|work|C:/Users/aluno/Desktop/afinador-violao-main/UC.vhd|
+Z43 !s107 C:/Users/aluno/Desktop/afinador-violao-main/UC.vhd|
+R12
+R13
+!s100 83F_1<OZZ^aDzW95D2@M60
+!i10b 1
+Abehavior
+R3
+R4
+DEx4 work 2 uc 0 22 ?WPf?SL6aUK_GnD0;>R7[0
+l34
+L30
+Vhb3oogHCOY5Q]S]5nfK@60
+R8
+31
+R41
+R42
+R43
+R12
+R13
+!s100 1_fCHKSO:HAk]KF]V7h]P3
+!i10b 1

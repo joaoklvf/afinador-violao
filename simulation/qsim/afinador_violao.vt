@@ -1,0 +1,323 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "06/14/2024 21:22:25"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    afinador_violao
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module afinador_violao_vlg_sample_tst(
+	clock,
+	entrada,
+	sampler_tx
+);
+input  clock;
+input  entrada;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clock or entrada)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module afinador_violao_vlg_check_tst (
+	afinado,
+	afrouxe_muito,
+	afrouxe_pouco,
+	aperte_muito,
+	aperte_pouco,
+	sampler_rx
+);
+input  afinado;
+input  afrouxe_muito;
+input  afrouxe_pouco;
+input  aperte_muito;
+input  aperte_pouco;
+input sampler_rx;
+
+reg  afinado_expected;
+reg  afrouxe_muito_expected;
+reg  afrouxe_pouco_expected;
+reg  aperte_muito_expected;
+reg  aperte_pouco_expected;
+
+reg  afinado_prev;
+reg  afrouxe_muito_prev;
+reg  afrouxe_pouco_prev;
+reg  aperte_muito_prev;
+reg  aperte_pouco_prev;
+
+reg  afinado_expected_prev;
+reg  afrouxe_muito_expected_prev;
+reg  afrouxe_pouco_expected_prev;
+reg  aperte_muito_expected_prev;
+reg  aperte_pouco_expected_prev;
+
+reg  last_afinado_exp;
+reg  last_afrouxe_muito_exp;
+reg  last_afrouxe_pouco_exp;
+reg  last_aperte_muito_exp;
+reg  last_aperte_pouco_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:5] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 5'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	afinado_prev = afinado;
+	afrouxe_muito_prev = afrouxe_muito;
+	afrouxe_pouco_prev = afrouxe_pouco;
+	aperte_muito_prev = aperte_muito;
+	aperte_pouco_prev = aperte_pouco;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	afinado_expected_prev = afinado_expected;
+	afrouxe_muito_expected_prev = afrouxe_muito_expected;
+	afrouxe_pouco_expected_prev = afrouxe_pouco_expected;
+	aperte_muito_expected_prev = aperte_muito_expected;
+	aperte_pouco_expected_prev = aperte_pouco_expected;
+end
+
+
+
+// expected afinado
+initial
+begin
+	afinado_expected = 1'bX;
+end 
+
+// expected afrouxe_muito
+initial
+begin
+	afrouxe_muito_expected = 1'bX;
+end 
+
+// expected afrouxe_pouco
+initial
+begin
+	afrouxe_pouco_expected = 1'bX;
+end 
+
+// expected aperte_muito
+initial
+begin
+	aperte_muito_expected = 1'bX;
+end 
+
+// expected aperte_pouco
+initial
+begin
+	aperte_pouco_expected = 1'bX;
+end 
+// generate trigger
+always @(afinado_expected or afinado or afrouxe_muito_expected or afrouxe_muito or afrouxe_pouco_expected or afrouxe_pouco or aperte_muito_expected or aperte_muito or aperte_pouco_expected or aperte_pouco)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected afinado = %b | expected afrouxe_muito = %b | expected afrouxe_pouco = %b | expected aperte_muito = %b | expected aperte_pouco = %b | ",afinado_expected_prev,afrouxe_muito_expected_prev,afrouxe_pouco_expected_prev,aperte_muito_expected_prev,aperte_pouco_expected_prev);
+	$display("| real afinado = %b | real afrouxe_muito = %b | real afrouxe_pouco = %b | real aperte_muito = %b | real aperte_pouco = %b | ",afinado_prev,afrouxe_muito_prev,afrouxe_pouco_prev,aperte_muito_prev,aperte_pouco_prev);
+`endif
+	if (
+		( afinado_expected_prev !== 1'bx ) && ( afinado_prev !== afinado_expected_prev )
+		&& ((afinado_expected_prev !== last_afinado_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port afinado :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", afinado_expected_prev);
+		$display ("     Real value = %b", afinado_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_afinado_exp = afinado_expected_prev;
+	end
+	if (
+		( afrouxe_muito_expected_prev !== 1'bx ) && ( afrouxe_muito_prev !== afrouxe_muito_expected_prev )
+		&& ((afrouxe_muito_expected_prev !== last_afrouxe_muito_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port afrouxe_muito :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", afrouxe_muito_expected_prev);
+		$display ("     Real value = %b", afrouxe_muito_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_afrouxe_muito_exp = afrouxe_muito_expected_prev;
+	end
+	if (
+		( afrouxe_pouco_expected_prev !== 1'bx ) && ( afrouxe_pouco_prev !== afrouxe_pouco_expected_prev )
+		&& ((afrouxe_pouco_expected_prev !== last_afrouxe_pouco_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port afrouxe_pouco :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", afrouxe_pouco_expected_prev);
+		$display ("     Real value = %b", afrouxe_pouco_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_afrouxe_pouco_exp = afrouxe_pouco_expected_prev;
+	end
+	if (
+		( aperte_muito_expected_prev !== 1'bx ) && ( aperte_muito_prev !== aperte_muito_expected_prev )
+		&& ((aperte_muito_expected_prev !== last_aperte_muito_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port aperte_muito :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", aperte_muito_expected_prev);
+		$display ("     Real value = %b", aperte_muito_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_aperte_muito_exp = aperte_muito_expected_prev;
+	end
+	if (
+		( aperte_pouco_expected_prev !== 1'bx ) && ( aperte_pouco_prev !== aperte_pouco_expected_prev )
+		&& ((aperte_pouco_expected_prev !== last_aperte_pouco_exp) ||
+			on_first_change[5])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port aperte_pouco :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", aperte_pouco_expected_prev);
+		$display ("     Real value = %b", aperte_pouco_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[5] = 1'b0;
+		last_aperte_pouco_exp = aperte_pouco_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module afinador_violao_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clock;
+reg entrada;
+// wires                                               
+wire afinado;
+wire afrouxe_muito;
+wire afrouxe_pouco;
+wire aperte_muito;
+wire aperte_pouco;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+afinador_violao i1 (
+// port map - connection between master ports and signals/registers   
+	.afinado(afinado),
+	.afrouxe_muito(afrouxe_muito),
+	.afrouxe_pouco(afrouxe_pouco),
+	.aperte_muito(aperte_muito),
+	.aperte_pouco(aperte_pouco),
+	.clock(clock),
+	.entrada(entrada)
+);
+
+// clock
+always
+begin
+	clock = 1'b0;
+	clock = #1000 1'b1;
+	#1000;
+end 
+
+// entrada
+initial
+begin
+	repeat(700)
+	begin
+		entrada = 1'b0;
+		entrada = #714 1'b1;
+		# 714;
+	end
+	entrada = 1'b0;
+end 
+
+afinador_violao_vlg_sample_tst tb_sample (
+	.clock(clock),
+	.entrada(entrada),
+	.sampler_tx(sampler)
+);
+
+afinador_violao_vlg_check_tst tb_out(
+	.afinado(afinado),
+	.afrouxe_muito(afrouxe_muito),
+	.afrouxe_pouco(afrouxe_pouco),
+	.aperte_muito(aperte_muito),
+	.aperte_pouco(aperte_pouco),
+	.sampler_rx(sampler)
+);
+endmodule
+

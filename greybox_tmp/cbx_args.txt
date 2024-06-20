@@ -5,4 +5,4 @@ LPM_WIDTH=20
 DEVICE_FAMILY="Cyclone IV E"
 dataa
 datab
-agb
+alb
