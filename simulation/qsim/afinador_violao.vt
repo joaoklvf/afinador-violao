@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "06/14/2024 21:22:25"
+// Generated on "07/02/2024 11:51:48"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    afinador_violao
 // 
@@ -286,21 +286,26 @@ afinador_violao i1 (
 );
 
 // clock
-always
+initial
 begin
+	repeat(49)
+	begin
+		clock = 1'b0;
+		clock = #5000 1'b1;
+		# 5000;
+	end
 	clock = 1'b0;
-	clock = #1000 1'b1;
-	#1000;
+	clock = #505000 1'b1;
 end 
 
 // entrada
 initial
 begin
-	repeat(700)
+	repeat(30)
 	begin
 		entrada = 1'b0;
-		entrada = #714 1'b1;
-		# 714;
+		entrada = #16667 1'b1;
+		# 16666;
 	end
 	entrada = 1'b0;
 end 

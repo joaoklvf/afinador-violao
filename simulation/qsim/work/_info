@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Joao\Desktop\afinador-violao\simulation\qsim
+vafinador_violao
+Z1 !s100 4_aZ8AoPP[V:l[J3A]62Q1
+Z2 ISJdf1=miDR>ShAiPJ>eLH0
+Z3 V8<GA3U[UbmS58a5Blf]OB2
+Z4 dC:\Users\Joao\Desktop\afinador-violao\simulation\qsim
+Z5 w1719931909
+Z6 8afinador_violao.vo
+Z7 Fafinador_violao.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|afinador_violao.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1719931910.358000
+Z12 !s107 afinador_violao.vo|
+!s101 -O0
+vafinador_violao_vlg_check_tst
+!i10b 1
+Z13 !s100 3;;G>d0:ok55lm^lzUb2n0
+Z14 IJYaPQ`l04`WzVOnW71Pz;1
+Z15 VTEn`CXfkkJM^Ug>e;3UOg1
+R4
+Z16 w1719931908
+Z17 8afinador_violao.vt
+Z18 Fafinador_violao.vt
+L0 59
+R8
+r1
+!s85 0
+31
+Z19 !s108 1719931910.429000
+Z20 !s107 afinador_violao.vt|
+Z21 !s90 -work|work|afinador_violao.vt|
+!s101 -O0
+R10
+vafinador_violao_vlg_sample_tst
+!i10b 1
+Z22 !s100 lRYk4?REBbGCckaXDiLFP1
+Z23 If;ed?Gdo9:XVeZU@N=L`f3
+Z24 VkdcQR0>Z^ZYdLPY446gGZ2
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vafinador_violao_vlg_vec_tst
+!i10b 1
+!s100 DGa9PniF8225L3ab7MO=T3
+I2AZ6eom;geF1BJbd6OzMV0
+Z25 V[?UGl8CX25dBSN8WPA_S?1
+R4
+R16
+R17
+R18
+Z26 L0 262
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

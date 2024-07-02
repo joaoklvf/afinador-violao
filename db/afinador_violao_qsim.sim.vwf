@@ -107,9 +107,9 @@ TRANSITION_LIST("afinado")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 81.0;
-		LEVEL 1 FOR 30.0;
-		LEVEL 0 FOR 889.0;
+		LEVEL 0 FOR 415.0;
+		LEVEL 1 FOR 400.0;
+		LEVEL 0 FOR 185.0;
 	}
 }
 
@@ -118,8 +118,8 @@ TRANSITION_LIST("afrouxe_muito")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 121.0;
-		LEVEL 1 FOR 879.0;
+		LEVEL 0 FOR 815.0;
+		LEVEL 1 FOR 185.0;
 	}
 }
 
@@ -128,9 +128,7 @@ TRANSITION_LIST("afrouxe_pouco")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 111.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 879.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -139,8 +137,8 @@ TRANSITION_LIST("aperte_muito")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 71.0;
-		LEVEL 0 FOR 929.0;
+		LEVEL 1 FOR 345.0;
+		LEVEL 0 FOR 655.0;
 	}
 }
 
@@ -149,9 +147,9 @@ TRANSITION_LIST("aperte_pouco")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 71.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 919.0;
+		LEVEL 0 FOR 345.0;
+		LEVEL 1 FOR 70.0;
+		LEVEL 0 FOR 585.0;
 	}
 }
 
@@ -162,9 +160,9 @@ TRANSITION_LIST("clock")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 500;
-			LEVEL 0 FOR 1.0;
-			LEVEL 1 FOR 1.0;
+			REPEAT = 100;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
 		}
 	}
 }
@@ -176,11 +174,19 @@ TRANSITION_LIST("entrada")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 700;
-			LEVEL 0 FOR 0.714;
-			LEVEL 1 FOR 0.714;
+			REPEAT = 23;
+			LEVEL 0 FOR 11.111;
+			LEVEL 1 FOR 11.111;
 		}
-		LEVEL 0 FOR 0.4;
+		LEVEL 0 FOR 299.997;
+		LEVEL 1 FOR 11.111;
+		NODE
+		{
+			REPEAT = 8;
+			LEVEL 0 FOR 11.111;
+			LEVEL 1 FOR 11.111;
+		}
+		LEVEL 0 FOR 0.01;
 	}
 }
 
