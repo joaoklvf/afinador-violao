@@ -7,7 +7,7 @@ entity contador_sem_overflow is
     Port (
         clock   : in  std_logic;
         count   : out std_logic_vector(19 downto 0);
-        sync_clear   : in  boolean
+        sync_clear   : in  std_logic
     );
 end contador_sem_overflow;
 
@@ -18,10 +18,9 @@ begin
     process(clock)
     begin        
         if falling_edge(clock) then
-          if(sync_clear) then
+          if (sync_clear = '1') then
             internal_count <= "00000000000000000000";
-          end if;
-          if internal_count /= "1111111111111111111" then
+          elsif internal_count /= "00000000111111111111" then
                internal_count <= std_logic_vector(unsigned(internal_count) + 1);
           end if;
         end if ;

@@ -1,0 +1,2 @@
+inverter os nomes das saídas do afinado;
+consertamos uns problemas no contador (acusar no git para explicar pro andre);
