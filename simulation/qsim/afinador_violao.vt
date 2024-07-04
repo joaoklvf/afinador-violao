@@ -18,26 +18,30 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "07/03/2024 16:20:26"
+// Generated on "07/04/2024 18:22:26"
                                                                         
-// Verilog Self-Checking Test Bench (with test vectors) for design :    afinador_violao
+// Verilog Self-Checking Test Bench (with test vectors) for design :    oscilador
 // 
 // Simulation tool : 3rd Party
 // 
 
 `timescale 1 ps/ 1 ps
-module afinador_violao_vlg_sample_tst(
+module oscilador_vlg_sample_tst(
+	afinar,
 	clock,
-	entrada,
+	enable,
+	up_down,
 	sampler_tx
 );
+input  afinar;
 input  clock;
-input  entrada;
+input  enable;
+input  up_down;
 output sampler_tx;
 
 reg sample;
 time current_time;
-always @(clock or entrada)
+always @(afinar or clock or enable or up_down)
                                                                                 
 begin                                                 
  if ($realtime > 0)                                   
@@ -56,57 +60,45 @@ end
 assign sampler_tx = sample;
 endmodule
 
-module afinador_violao_vlg_check_tst (
-	afinado,
-	afrouxe_muito,
-	afrouxe_pouco,
-	aperte_muito,
-	aperte_pouco,
-	saida_2,
+module oscilador_vlg_check_tst (
+	counter0_saida,
+	counter2_saida,
+	ddd_q,
+	saida,
 	sampler_rx
 );
-input  afinado;
-input  afrouxe_muito;
-input  afrouxe_pouco;
-input  aperte_muito;
-input  aperte_pouco;
-input [19:0] saida_2;
+input [19:0] counter0_saida;
+input [19:0] counter2_saida;
+input  ddd_q;
+input  saida;
 input sampler_rx;
 
-reg  afinado_expected;
-reg  afrouxe_muito_expected;
-reg  afrouxe_pouco_expected;
-reg  aperte_muito_expected;
-reg  aperte_pouco_expected;
-reg [19:0] saida_2_expected;
+reg [19:0] counter0_saida_expected;
+reg [19:0] counter2_saida_expected;
+reg  ddd_q_expected;
+reg  saida_expected;
 
-reg  afinado_prev;
-reg  afrouxe_muito_prev;
-reg  afrouxe_pouco_prev;
-reg  aperte_muito_prev;
-reg  aperte_pouco_prev;
-reg [19:0] saida_2_prev;
+reg [19:0] counter0_saida_prev;
+reg [19:0] counter2_saida_prev;
+reg  ddd_q_prev;
+reg  saida_prev;
 
-reg  afinado_expected_prev;
-reg  afrouxe_muito_expected_prev;
-reg  afrouxe_pouco_expected_prev;
-reg  aperte_muito_expected_prev;
-reg  aperte_pouco_expected_prev;
-reg [19:0] saida_2_expected_prev;
+reg [19:0] counter0_saida_expected_prev;
+reg [19:0] counter2_saida_expected_prev;
+reg  ddd_q_expected_prev;
+reg  saida_expected_prev;
 
-reg  last_afinado_exp;
-reg  last_afrouxe_muito_exp;
-reg  last_afrouxe_pouco_exp;
-reg  last_aperte_muito_exp;
-reg  last_aperte_pouco_exp;
-reg [19:0] last_saida_2_exp;
+reg [19:0] last_counter0_saida_exp;
+reg [19:0] last_counter2_saida_exp;
+reg  last_ddd_q_exp;
+reg  last_saida_exp;
 
 reg trigger;
 
 integer i;
 integer nummismatches;
 
-reg [1:6] on_first_change ;
+reg [1:4] on_first_change ;
 
 
 initial
@@ -114,166 +106,244 @@ begin
 trigger = 0;
 i = 0;
 nummismatches = 0;
-on_first_change = 6'b1;
+on_first_change = 4'b1;
 end
 
 // update real /o prevs
 
 always @(trigger)
 begin
-	afinado_prev = afinado;
-	afrouxe_muito_prev = afrouxe_muito;
-	afrouxe_pouco_prev = afrouxe_pouco;
-	aperte_muito_prev = aperte_muito;
-	aperte_pouco_prev = aperte_pouco;
-	saida_2_prev = saida_2;
+	counter0_saida_prev = counter0_saida;
+	counter2_saida_prev = counter2_saida;
+	ddd_q_prev = ddd_q;
+	saida_prev = saida;
 end
 
 // update expected /o prevs
 
 always @(trigger)
 begin
-	afinado_expected_prev = afinado_expected;
-	afrouxe_muito_expected_prev = afrouxe_muito_expected;
-	afrouxe_pouco_expected_prev = afrouxe_pouco_expected;
-	aperte_muito_expected_prev = aperte_muito_expected;
-	aperte_pouco_expected_prev = aperte_pouco_expected;
-	saida_2_expected_prev = saida_2_expected;
+	counter0_saida_expected_prev = counter0_saida_expected;
+	counter2_saida_expected_prev = counter2_saida_expected;
+	ddd_q_expected_prev = ddd_q_expected;
+	saida_expected_prev = saida_expected;
 end
 
 
 
-// expected afinado
+// expected saida
 initial
 begin
-	afinado_expected = 1'bX;
+	saida_expected = 1'bX;
 end 
 
-// expected afrouxe_muito
+// expected ddd_q
 initial
 begin
-	afrouxe_muito_expected = 1'bX;
+	ddd_q_expected = 1'bX;
 end 
-
-// expected afrouxe_pouco
+// expected counter0_saida[ 19 ]
 initial
 begin
-	afrouxe_pouco_expected = 1'bX;
+	counter0_saida_expected[19] = 1'bX;
 end 
-
-// expected aperte_muito
+// expected counter0_saida[ 18 ]
 initial
 begin
-	aperte_muito_expected = 1'bX;
+	counter0_saida_expected[18] = 1'bX;
 end 
-
-// expected aperte_pouco
+// expected counter0_saida[ 17 ]
 initial
 begin
-	aperte_pouco_expected = 1'bX;
+	counter0_saida_expected[17] = 1'bX;
 end 
-// expected saida_2[ 19 ]
+// expected counter0_saida[ 16 ]
 initial
 begin
-	saida_2_expected[19] = 1'bX;
+	counter0_saida_expected[16] = 1'bX;
 end 
-// expected saida_2[ 18 ]
+// expected counter0_saida[ 15 ]
 initial
 begin
-	saida_2_expected[18] = 1'bX;
+	counter0_saida_expected[15] = 1'bX;
 end 
-// expected saida_2[ 17 ]
+// expected counter0_saida[ 14 ]
 initial
 begin
-	saida_2_expected[17] = 1'bX;
+	counter0_saida_expected[14] = 1'bX;
 end 
-// expected saida_2[ 16 ]
+// expected counter0_saida[ 13 ]
 initial
 begin
-	saida_2_expected[16] = 1'bX;
+	counter0_saida_expected[13] = 1'bX;
 end 
-// expected saida_2[ 15 ]
+// expected counter0_saida[ 12 ]
 initial
 begin
-	saida_2_expected[15] = 1'bX;
+	counter0_saida_expected[12] = 1'bX;
 end 
-// expected saida_2[ 14 ]
+// expected counter0_saida[ 11 ]
 initial
 begin
-	saida_2_expected[14] = 1'bX;
+	counter0_saida_expected[11] = 1'bX;
 end 
-// expected saida_2[ 13 ]
+// expected counter0_saida[ 10 ]
 initial
 begin
-	saida_2_expected[13] = 1'bX;
+	counter0_saida_expected[10] = 1'bX;
 end 
-// expected saida_2[ 12 ]
+// expected counter0_saida[ 9 ]
 initial
 begin
-	saida_2_expected[12] = 1'bX;
+	counter0_saida_expected[9] = 1'bX;
 end 
-// expected saida_2[ 11 ]
+// expected counter0_saida[ 8 ]
 initial
 begin
-	saida_2_expected[11] = 1'bX;
+	counter0_saida_expected[8] = 1'bX;
 end 
-// expected saida_2[ 10 ]
+// expected counter0_saida[ 7 ]
 initial
 begin
-	saida_2_expected[10] = 1'bX;
+	counter0_saida_expected[7] = 1'bX;
 end 
-// expected saida_2[ 9 ]
+// expected counter0_saida[ 6 ]
 initial
 begin
-	saida_2_expected[9] = 1'bX;
+	counter0_saida_expected[6] = 1'bX;
 end 
-// expected saida_2[ 8 ]
+// expected counter0_saida[ 5 ]
 initial
 begin
-	saida_2_expected[8] = 1'bX;
+	counter0_saida_expected[5] = 1'bX;
 end 
-// expected saida_2[ 7 ]
+// expected counter0_saida[ 4 ]
 initial
 begin
-	saida_2_expected[7] = 1'bX;
+	counter0_saida_expected[4] = 1'bX;
 end 
-// expected saida_2[ 6 ]
+// expected counter0_saida[ 3 ]
 initial
 begin
-	saida_2_expected[6] = 1'bX;
+	counter0_saida_expected[3] = 1'bX;
 end 
-// expected saida_2[ 5 ]
+// expected counter0_saida[ 2 ]
 initial
 begin
-	saida_2_expected[5] = 1'bX;
+	counter0_saida_expected[2] = 1'bX;
 end 
-// expected saida_2[ 4 ]
+// expected counter0_saida[ 1 ]
 initial
 begin
-	saida_2_expected[4] = 1'bX;
+	counter0_saida_expected[1] = 1'bX;
 end 
-// expected saida_2[ 3 ]
+// expected counter0_saida[ 0 ]
 initial
 begin
-	saida_2_expected[3] = 1'bX;
+	counter0_saida_expected[0] = 1'bX;
 end 
-// expected saida_2[ 2 ]
+// expected counter2_saida[ 19 ]
 initial
 begin
-	saida_2_expected[2] = 1'bX;
+	counter2_saida_expected[19] = 1'bX;
 end 
-// expected saida_2[ 1 ]
+// expected counter2_saida[ 18 ]
 initial
 begin
-	saida_2_expected[1] = 1'bX;
+	counter2_saida_expected[18] = 1'bX;
 end 
-// expected saida_2[ 0 ]
+// expected counter2_saida[ 17 ]
 initial
 begin
-	saida_2_expected[0] = 1'bX;
+	counter2_saida_expected[17] = 1'bX;
+end 
+// expected counter2_saida[ 16 ]
+initial
+begin
+	counter2_saida_expected[16] = 1'bX;
+end 
+// expected counter2_saida[ 15 ]
+initial
+begin
+	counter2_saida_expected[15] = 1'bX;
+end 
+// expected counter2_saida[ 14 ]
+initial
+begin
+	counter2_saida_expected[14] = 1'bX;
+end 
+// expected counter2_saida[ 13 ]
+initial
+begin
+	counter2_saida_expected[13] = 1'bX;
+end 
+// expected counter2_saida[ 12 ]
+initial
+begin
+	counter2_saida_expected[12] = 1'bX;
+end 
+// expected counter2_saida[ 11 ]
+initial
+begin
+	counter2_saida_expected[11] = 1'bX;
+end 
+// expected counter2_saida[ 10 ]
+initial
+begin
+	counter2_saida_expected[10] = 1'bX;
+end 
+// expected counter2_saida[ 9 ]
+initial
+begin
+	counter2_saida_expected[9] = 1'bX;
+end 
+// expected counter2_saida[ 8 ]
+initial
+begin
+	counter2_saida_expected[8] = 1'bX;
+end 
+// expected counter2_saida[ 7 ]
+initial
+begin
+	counter2_saida_expected[7] = 1'bX;
+end 
+// expected counter2_saida[ 6 ]
+initial
+begin
+	counter2_saida_expected[6] = 1'bX;
+end 
+// expected counter2_saida[ 5 ]
+initial
+begin
+	counter2_saida_expected[5] = 1'bX;
+end 
+// expected counter2_saida[ 4 ]
+initial
+begin
+	counter2_saida_expected[4] = 1'bX;
+end 
+// expected counter2_saida[ 3 ]
+initial
+begin
+	counter2_saida_expected[3] = 1'bX;
+end 
+// expected counter2_saida[ 2 ]
+initial
+begin
+	counter2_saida_expected[2] = 1'bX;
+end 
+// expected counter2_saida[ 1 ]
+initial
+begin
+	counter2_saida_expected[1] = 1'bX;
+end 
+// expected counter2_saida[ 0 ]
+initial
+begin
+	counter2_saida_expected[0] = 1'bX;
 end 
 // generate trigger
-always @(afinado_expected or afinado or afrouxe_muito_expected or afrouxe_muito or afrouxe_pouco_expected or afrouxe_pouco or aperte_muito_expected or aperte_muito or aperte_pouco_expected or aperte_pouco or saida_2_expected or saida_2)
+always @(counter0_saida_expected or counter0_saida or counter2_saida_expected or counter2_saida or ddd_q_expected or ddd_q or saida_expected or saida)
 begin
 	trigger <= ~trigger;
 end
@@ -283,333 +353,554 @@ begin
 `ifdef debug_tbench
 	$display("Scanning pattern %d @time = %t",i,$realtime );
 	i = i + 1;
-	$display("| expected afinado = %b | expected afrouxe_muito = %b | expected afrouxe_pouco = %b | expected aperte_muito = %b | expected aperte_pouco = %b | expected saida_2 = %b | ",afinado_expected_prev,afrouxe_muito_expected_prev,afrouxe_pouco_expected_prev,aperte_muito_expected_prev,aperte_pouco_expected_prev,saida_2_expected_prev);
-	$display("| real afinado = %b | real afrouxe_muito = %b | real afrouxe_pouco = %b | real aperte_muito = %b | real aperte_pouco = %b | real saida_2 = %b | ",afinado_prev,afrouxe_muito_prev,afrouxe_pouco_prev,aperte_muito_prev,aperte_pouco_prev,saida_2_prev);
+	$display("| expected counter0_saida = %b | expected counter2_saida = %b | expected ddd_q = %b | expected saida = %b | ",counter0_saida_expected_prev,counter2_saida_expected_prev,ddd_q_expected_prev,saida_expected_prev);
+	$display("| real counter0_saida = %b | real counter2_saida = %b | real ddd_q = %b | real saida = %b | ",counter0_saida_prev,counter2_saida_prev,ddd_q_prev,saida_prev);
 `endif
 	if (
-		( afinado_expected_prev !== 1'bx ) && ( afinado_prev !== afinado_expected_prev )
-		&& ((afinado_expected_prev !== last_afinado_exp) ||
+		( counter0_saida_expected_prev[0] !== 1'bx ) && ( counter0_saida_prev[0] !== counter0_saida_expected_prev[0] )
+		&& ((counter0_saida_expected_prev[0] !== last_counter0_saida_exp[0]) ||
 			on_first_change[1])
 	)
 	begin
-		$display ("ERROR! Vector Mismatch for output port afinado :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", afinado_expected_prev);
-		$display ("     Real value = %b", afinado_prev);
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
 		nummismatches = nummismatches + 1;
 		on_first_change[1] = 1'b0;
-		last_afinado_exp = afinado_expected_prev;
+		last_counter0_saida_exp[0] = counter0_saida_expected_prev[0];
 	end
 	if (
-		( afrouxe_muito_expected_prev !== 1'bx ) && ( afrouxe_muito_prev !== afrouxe_muito_expected_prev )
-		&& ((afrouxe_muito_expected_prev !== last_afrouxe_muito_exp) ||
+		( counter0_saida_expected_prev[1] !== 1'bx ) && ( counter0_saida_prev[1] !== counter0_saida_expected_prev[1] )
+		&& ((counter0_saida_expected_prev[1] !== last_counter0_saida_exp[1]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[1] = counter0_saida_expected_prev[1];
+	end
+	if (
+		( counter0_saida_expected_prev[2] !== 1'bx ) && ( counter0_saida_prev[2] !== counter0_saida_expected_prev[2] )
+		&& ((counter0_saida_expected_prev[2] !== last_counter0_saida_exp[2]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[2] = counter0_saida_expected_prev[2];
+	end
+	if (
+		( counter0_saida_expected_prev[3] !== 1'bx ) && ( counter0_saida_prev[3] !== counter0_saida_expected_prev[3] )
+		&& ((counter0_saida_expected_prev[3] !== last_counter0_saida_exp[3]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[3] = counter0_saida_expected_prev[3];
+	end
+	if (
+		( counter0_saida_expected_prev[4] !== 1'bx ) && ( counter0_saida_prev[4] !== counter0_saida_expected_prev[4] )
+		&& ((counter0_saida_expected_prev[4] !== last_counter0_saida_exp[4]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[4] = counter0_saida_expected_prev[4];
+	end
+	if (
+		( counter0_saida_expected_prev[5] !== 1'bx ) && ( counter0_saida_prev[5] !== counter0_saida_expected_prev[5] )
+		&& ((counter0_saida_expected_prev[5] !== last_counter0_saida_exp[5]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[5] = counter0_saida_expected_prev[5];
+	end
+	if (
+		( counter0_saida_expected_prev[6] !== 1'bx ) && ( counter0_saida_prev[6] !== counter0_saida_expected_prev[6] )
+		&& ((counter0_saida_expected_prev[6] !== last_counter0_saida_exp[6]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[6] = counter0_saida_expected_prev[6];
+	end
+	if (
+		( counter0_saida_expected_prev[7] !== 1'bx ) && ( counter0_saida_prev[7] !== counter0_saida_expected_prev[7] )
+		&& ((counter0_saida_expected_prev[7] !== last_counter0_saida_exp[7]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[7] = counter0_saida_expected_prev[7];
+	end
+	if (
+		( counter0_saida_expected_prev[8] !== 1'bx ) && ( counter0_saida_prev[8] !== counter0_saida_expected_prev[8] )
+		&& ((counter0_saida_expected_prev[8] !== last_counter0_saida_exp[8]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[8] = counter0_saida_expected_prev[8];
+	end
+	if (
+		( counter0_saida_expected_prev[9] !== 1'bx ) && ( counter0_saida_prev[9] !== counter0_saida_expected_prev[9] )
+		&& ((counter0_saida_expected_prev[9] !== last_counter0_saida_exp[9]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[9] = counter0_saida_expected_prev[9];
+	end
+	if (
+		( counter0_saida_expected_prev[10] !== 1'bx ) && ( counter0_saida_prev[10] !== counter0_saida_expected_prev[10] )
+		&& ((counter0_saida_expected_prev[10] !== last_counter0_saida_exp[10]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[10] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[10] = counter0_saida_expected_prev[10];
+	end
+	if (
+		( counter0_saida_expected_prev[11] !== 1'bx ) && ( counter0_saida_prev[11] !== counter0_saida_expected_prev[11] )
+		&& ((counter0_saida_expected_prev[11] !== last_counter0_saida_exp[11]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[11] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[11] = counter0_saida_expected_prev[11];
+	end
+	if (
+		( counter0_saida_expected_prev[12] !== 1'bx ) && ( counter0_saida_prev[12] !== counter0_saida_expected_prev[12] )
+		&& ((counter0_saida_expected_prev[12] !== last_counter0_saida_exp[12]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[12] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[12] = counter0_saida_expected_prev[12];
+	end
+	if (
+		( counter0_saida_expected_prev[13] !== 1'bx ) && ( counter0_saida_prev[13] !== counter0_saida_expected_prev[13] )
+		&& ((counter0_saida_expected_prev[13] !== last_counter0_saida_exp[13]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[13] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[13] = counter0_saida_expected_prev[13];
+	end
+	if (
+		( counter0_saida_expected_prev[14] !== 1'bx ) && ( counter0_saida_prev[14] !== counter0_saida_expected_prev[14] )
+		&& ((counter0_saida_expected_prev[14] !== last_counter0_saida_exp[14]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[14] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[14] = counter0_saida_expected_prev[14];
+	end
+	if (
+		( counter0_saida_expected_prev[15] !== 1'bx ) && ( counter0_saida_prev[15] !== counter0_saida_expected_prev[15] )
+		&& ((counter0_saida_expected_prev[15] !== last_counter0_saida_exp[15]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[15] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[15] = counter0_saida_expected_prev[15];
+	end
+	if (
+		( counter0_saida_expected_prev[16] !== 1'bx ) && ( counter0_saida_prev[16] !== counter0_saida_expected_prev[16] )
+		&& ((counter0_saida_expected_prev[16] !== last_counter0_saida_exp[16]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[16] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[16] = counter0_saida_expected_prev[16];
+	end
+	if (
+		( counter0_saida_expected_prev[17] !== 1'bx ) && ( counter0_saida_prev[17] !== counter0_saida_expected_prev[17] )
+		&& ((counter0_saida_expected_prev[17] !== last_counter0_saida_exp[17]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[17] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[17] = counter0_saida_expected_prev[17];
+	end
+	if (
+		( counter0_saida_expected_prev[18] !== 1'bx ) && ( counter0_saida_prev[18] !== counter0_saida_expected_prev[18] )
+		&& ((counter0_saida_expected_prev[18] !== last_counter0_saida_exp[18]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[18] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[18] = counter0_saida_expected_prev[18];
+	end
+	if (
+		( counter0_saida_expected_prev[19] !== 1'bx ) && ( counter0_saida_prev[19] !== counter0_saida_expected_prev[19] )
+		&& ((counter0_saida_expected_prev[19] !== last_counter0_saida_exp[19]) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter0_saida[19] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter0_saida_expected_prev);
+		$display ("     Real value = %b", counter0_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_counter0_saida_exp[19] = counter0_saida_expected_prev[19];
+	end
+	if (
+		( counter2_saida_expected_prev[0] !== 1'bx ) && ( counter2_saida_prev[0] !== counter2_saida_expected_prev[0] )
+		&& ((counter2_saida_expected_prev[0] !== last_counter2_saida_exp[0]) ||
 			on_first_change[2])
 	)
 	begin
-		$display ("ERROR! Vector Mismatch for output port afrouxe_muito :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", afrouxe_muito_expected_prev);
-		$display ("     Real value = %b", afrouxe_muito_prev);
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
 		nummismatches = nummismatches + 1;
 		on_first_change[2] = 1'b0;
-		last_afrouxe_muito_exp = afrouxe_muito_expected_prev;
+		last_counter2_saida_exp[0] = counter2_saida_expected_prev[0];
 	end
 	if (
-		( afrouxe_pouco_expected_prev !== 1'bx ) && ( afrouxe_pouco_prev !== afrouxe_pouco_expected_prev )
-		&& ((afrouxe_pouco_expected_prev !== last_afrouxe_pouco_exp) ||
+		( counter2_saida_expected_prev[1] !== 1'bx ) && ( counter2_saida_prev[1] !== counter2_saida_expected_prev[1] )
+		&& ((counter2_saida_expected_prev[1] !== last_counter2_saida_exp[1]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[1] = counter2_saida_expected_prev[1];
+	end
+	if (
+		( counter2_saida_expected_prev[2] !== 1'bx ) && ( counter2_saida_prev[2] !== counter2_saida_expected_prev[2] )
+		&& ((counter2_saida_expected_prev[2] !== last_counter2_saida_exp[2]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[2] = counter2_saida_expected_prev[2];
+	end
+	if (
+		( counter2_saida_expected_prev[3] !== 1'bx ) && ( counter2_saida_prev[3] !== counter2_saida_expected_prev[3] )
+		&& ((counter2_saida_expected_prev[3] !== last_counter2_saida_exp[3]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[3] = counter2_saida_expected_prev[3];
+	end
+	if (
+		( counter2_saida_expected_prev[4] !== 1'bx ) && ( counter2_saida_prev[4] !== counter2_saida_expected_prev[4] )
+		&& ((counter2_saida_expected_prev[4] !== last_counter2_saida_exp[4]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[4] = counter2_saida_expected_prev[4];
+	end
+	if (
+		( counter2_saida_expected_prev[5] !== 1'bx ) && ( counter2_saida_prev[5] !== counter2_saida_expected_prev[5] )
+		&& ((counter2_saida_expected_prev[5] !== last_counter2_saida_exp[5]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[5] = counter2_saida_expected_prev[5];
+	end
+	if (
+		( counter2_saida_expected_prev[6] !== 1'bx ) && ( counter2_saida_prev[6] !== counter2_saida_expected_prev[6] )
+		&& ((counter2_saida_expected_prev[6] !== last_counter2_saida_exp[6]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[6] = counter2_saida_expected_prev[6];
+	end
+	if (
+		( counter2_saida_expected_prev[7] !== 1'bx ) && ( counter2_saida_prev[7] !== counter2_saida_expected_prev[7] )
+		&& ((counter2_saida_expected_prev[7] !== last_counter2_saida_exp[7]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[7] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[7] = counter2_saida_expected_prev[7];
+	end
+	if (
+		( counter2_saida_expected_prev[8] !== 1'bx ) && ( counter2_saida_prev[8] !== counter2_saida_expected_prev[8] )
+		&& ((counter2_saida_expected_prev[8] !== last_counter2_saida_exp[8]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[8] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[8] = counter2_saida_expected_prev[8];
+	end
+	if (
+		( counter2_saida_expected_prev[9] !== 1'bx ) && ( counter2_saida_prev[9] !== counter2_saida_expected_prev[9] )
+		&& ((counter2_saida_expected_prev[9] !== last_counter2_saida_exp[9]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[9] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[9] = counter2_saida_expected_prev[9];
+	end
+	if (
+		( counter2_saida_expected_prev[10] !== 1'bx ) && ( counter2_saida_prev[10] !== counter2_saida_expected_prev[10] )
+		&& ((counter2_saida_expected_prev[10] !== last_counter2_saida_exp[10]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[10] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[10] = counter2_saida_expected_prev[10];
+	end
+	if (
+		( counter2_saida_expected_prev[11] !== 1'bx ) && ( counter2_saida_prev[11] !== counter2_saida_expected_prev[11] )
+		&& ((counter2_saida_expected_prev[11] !== last_counter2_saida_exp[11]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[11] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[11] = counter2_saida_expected_prev[11];
+	end
+	if (
+		( counter2_saida_expected_prev[12] !== 1'bx ) && ( counter2_saida_prev[12] !== counter2_saida_expected_prev[12] )
+		&& ((counter2_saida_expected_prev[12] !== last_counter2_saida_exp[12]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[12] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[12] = counter2_saida_expected_prev[12];
+	end
+	if (
+		( counter2_saida_expected_prev[13] !== 1'bx ) && ( counter2_saida_prev[13] !== counter2_saida_expected_prev[13] )
+		&& ((counter2_saida_expected_prev[13] !== last_counter2_saida_exp[13]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[13] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[13] = counter2_saida_expected_prev[13];
+	end
+	if (
+		( counter2_saida_expected_prev[14] !== 1'bx ) && ( counter2_saida_prev[14] !== counter2_saida_expected_prev[14] )
+		&& ((counter2_saida_expected_prev[14] !== last_counter2_saida_exp[14]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[14] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[14] = counter2_saida_expected_prev[14];
+	end
+	if (
+		( counter2_saida_expected_prev[15] !== 1'bx ) && ( counter2_saida_prev[15] !== counter2_saida_expected_prev[15] )
+		&& ((counter2_saida_expected_prev[15] !== last_counter2_saida_exp[15]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[15] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[15] = counter2_saida_expected_prev[15];
+	end
+	if (
+		( counter2_saida_expected_prev[16] !== 1'bx ) && ( counter2_saida_prev[16] !== counter2_saida_expected_prev[16] )
+		&& ((counter2_saida_expected_prev[16] !== last_counter2_saida_exp[16]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[16] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[16] = counter2_saida_expected_prev[16];
+	end
+	if (
+		( counter2_saida_expected_prev[17] !== 1'bx ) && ( counter2_saida_prev[17] !== counter2_saida_expected_prev[17] )
+		&& ((counter2_saida_expected_prev[17] !== last_counter2_saida_exp[17]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[17] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[17] = counter2_saida_expected_prev[17];
+	end
+	if (
+		( counter2_saida_expected_prev[18] !== 1'bx ) && ( counter2_saida_prev[18] !== counter2_saida_expected_prev[18] )
+		&& ((counter2_saida_expected_prev[18] !== last_counter2_saida_exp[18]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[18] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[18] = counter2_saida_expected_prev[18];
+	end
+	if (
+		( counter2_saida_expected_prev[19] !== 1'bx ) && ( counter2_saida_prev[19] !== counter2_saida_expected_prev[19] )
+		&& ((counter2_saida_expected_prev[19] !== last_counter2_saida_exp[19]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port counter2_saida[19] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", counter2_saida_expected_prev);
+		$display ("     Real value = %b", counter2_saida_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_counter2_saida_exp[19] = counter2_saida_expected_prev[19];
+	end
+	if (
+		( ddd_q_expected_prev !== 1'bx ) && ( ddd_q_prev !== ddd_q_expected_prev )
+		&& ((ddd_q_expected_prev !== last_ddd_q_exp) ||
 			on_first_change[3])
 	)
 	begin
-		$display ("ERROR! Vector Mismatch for output port afrouxe_pouco :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", afrouxe_pouco_expected_prev);
-		$display ("     Real value = %b", afrouxe_pouco_prev);
+		$display ("ERROR! Vector Mismatch for output port ddd_q :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ddd_q_expected_prev);
+		$display ("     Real value = %b", ddd_q_prev);
 		nummismatches = nummismatches + 1;
 		on_first_change[3] = 1'b0;
-		last_afrouxe_pouco_exp = afrouxe_pouco_expected_prev;
+		last_ddd_q_exp = ddd_q_expected_prev;
 	end
 	if (
-		( aperte_muito_expected_prev !== 1'bx ) && ( aperte_muito_prev !== aperte_muito_expected_prev )
-		&& ((aperte_muito_expected_prev !== last_aperte_muito_exp) ||
+		( saida_expected_prev !== 1'bx ) && ( saida_prev !== saida_expected_prev )
+		&& ((saida_expected_prev !== last_saida_exp) ||
 			on_first_change[4])
 	)
 	begin
-		$display ("ERROR! Vector Mismatch for output port aperte_muito :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", aperte_muito_expected_prev);
-		$display ("     Real value = %b", aperte_muito_prev);
+		$display ("ERROR! Vector Mismatch for output port saida :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", saida_expected_prev);
+		$display ("     Real value = %b", saida_prev);
 		nummismatches = nummismatches + 1;
 		on_first_change[4] = 1'b0;
-		last_aperte_muito_exp = aperte_muito_expected_prev;
-	end
-	if (
-		( aperte_pouco_expected_prev !== 1'bx ) && ( aperte_pouco_prev !== aperte_pouco_expected_prev )
-		&& ((aperte_pouco_expected_prev !== last_aperte_pouco_exp) ||
-			on_first_change[5])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port aperte_pouco :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", aperte_pouco_expected_prev);
-		$display ("     Real value = %b", aperte_pouco_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[5] = 1'b0;
-		last_aperte_pouco_exp = aperte_pouco_expected_prev;
-	end
-	if (
-		( saida_2_expected_prev[0] !== 1'bx ) && ( saida_2_prev[0] !== saida_2_expected_prev[0] )
-		&& ((saida_2_expected_prev[0] !== last_saida_2_exp[0]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[0] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[0] = saida_2_expected_prev[0];
-	end
-	if (
-		( saida_2_expected_prev[1] !== 1'bx ) && ( saida_2_prev[1] !== saida_2_expected_prev[1] )
-		&& ((saida_2_expected_prev[1] !== last_saida_2_exp[1]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[1] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[1] = saida_2_expected_prev[1];
-	end
-	if (
-		( saida_2_expected_prev[2] !== 1'bx ) && ( saida_2_prev[2] !== saida_2_expected_prev[2] )
-		&& ((saida_2_expected_prev[2] !== last_saida_2_exp[2]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[2] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[2] = saida_2_expected_prev[2];
-	end
-	if (
-		( saida_2_expected_prev[3] !== 1'bx ) && ( saida_2_prev[3] !== saida_2_expected_prev[3] )
-		&& ((saida_2_expected_prev[3] !== last_saida_2_exp[3]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[3] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[3] = saida_2_expected_prev[3];
-	end
-	if (
-		( saida_2_expected_prev[4] !== 1'bx ) && ( saida_2_prev[4] !== saida_2_expected_prev[4] )
-		&& ((saida_2_expected_prev[4] !== last_saida_2_exp[4]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[4] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[4] = saida_2_expected_prev[4];
-	end
-	if (
-		( saida_2_expected_prev[5] !== 1'bx ) && ( saida_2_prev[5] !== saida_2_expected_prev[5] )
-		&& ((saida_2_expected_prev[5] !== last_saida_2_exp[5]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[5] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[5] = saida_2_expected_prev[5];
-	end
-	if (
-		( saida_2_expected_prev[6] !== 1'bx ) && ( saida_2_prev[6] !== saida_2_expected_prev[6] )
-		&& ((saida_2_expected_prev[6] !== last_saida_2_exp[6]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[6] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[6] = saida_2_expected_prev[6];
-	end
-	if (
-		( saida_2_expected_prev[7] !== 1'bx ) && ( saida_2_prev[7] !== saida_2_expected_prev[7] )
-		&& ((saida_2_expected_prev[7] !== last_saida_2_exp[7]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[7] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[7] = saida_2_expected_prev[7];
-	end
-	if (
-		( saida_2_expected_prev[8] !== 1'bx ) && ( saida_2_prev[8] !== saida_2_expected_prev[8] )
-		&& ((saida_2_expected_prev[8] !== last_saida_2_exp[8]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[8] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[8] = saida_2_expected_prev[8];
-	end
-	if (
-		( saida_2_expected_prev[9] !== 1'bx ) && ( saida_2_prev[9] !== saida_2_expected_prev[9] )
-		&& ((saida_2_expected_prev[9] !== last_saida_2_exp[9]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[9] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[9] = saida_2_expected_prev[9];
-	end
-	if (
-		( saida_2_expected_prev[10] !== 1'bx ) && ( saida_2_prev[10] !== saida_2_expected_prev[10] )
-		&& ((saida_2_expected_prev[10] !== last_saida_2_exp[10]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[10] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[10] = saida_2_expected_prev[10];
-	end
-	if (
-		( saida_2_expected_prev[11] !== 1'bx ) && ( saida_2_prev[11] !== saida_2_expected_prev[11] )
-		&& ((saida_2_expected_prev[11] !== last_saida_2_exp[11]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[11] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[11] = saida_2_expected_prev[11];
-	end
-	if (
-		( saida_2_expected_prev[12] !== 1'bx ) && ( saida_2_prev[12] !== saida_2_expected_prev[12] )
-		&& ((saida_2_expected_prev[12] !== last_saida_2_exp[12]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[12] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[12] = saida_2_expected_prev[12];
-	end
-	if (
-		( saida_2_expected_prev[13] !== 1'bx ) && ( saida_2_prev[13] !== saida_2_expected_prev[13] )
-		&& ((saida_2_expected_prev[13] !== last_saida_2_exp[13]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[13] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[13] = saida_2_expected_prev[13];
-	end
-	if (
-		( saida_2_expected_prev[14] !== 1'bx ) && ( saida_2_prev[14] !== saida_2_expected_prev[14] )
-		&& ((saida_2_expected_prev[14] !== last_saida_2_exp[14]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[14] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[14] = saida_2_expected_prev[14];
-	end
-	if (
-		( saida_2_expected_prev[15] !== 1'bx ) && ( saida_2_prev[15] !== saida_2_expected_prev[15] )
-		&& ((saida_2_expected_prev[15] !== last_saida_2_exp[15]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[15] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[15] = saida_2_expected_prev[15];
-	end
-	if (
-		( saida_2_expected_prev[16] !== 1'bx ) && ( saida_2_prev[16] !== saida_2_expected_prev[16] )
-		&& ((saida_2_expected_prev[16] !== last_saida_2_exp[16]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[16] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[16] = saida_2_expected_prev[16];
-	end
-	if (
-		( saida_2_expected_prev[17] !== 1'bx ) && ( saida_2_prev[17] !== saida_2_expected_prev[17] )
-		&& ((saida_2_expected_prev[17] !== last_saida_2_exp[17]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[17] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[17] = saida_2_expected_prev[17];
-	end
-	if (
-		( saida_2_expected_prev[18] !== 1'bx ) && ( saida_2_prev[18] !== saida_2_expected_prev[18] )
-		&& ((saida_2_expected_prev[18] !== last_saida_2_exp[18]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[18] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[18] = saida_2_expected_prev[18];
-	end
-	if (
-		( saida_2_expected_prev[19] !== 1'bx ) && ( saida_2_prev[19] !== saida_2_expected_prev[19] )
-		&& ((saida_2_expected_prev[19] !== last_saida_2_exp[19]) ||
-			on_first_change[6])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port saida_2[19] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", saida_2_expected_prev);
-		$display ("     Real value = %b", saida_2_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[6] = 1'b0;
-		last_saida_2_exp[19] = saida_2_expected_prev[19];
+		last_saida_exp = saida_expected_prev;
 	end
 
 	trigger <= ~trigger;
@@ -627,33 +918,39 @@ $finish;
 end 
 endmodule
 
-module afinador_violao_vlg_vec_tst();
+module oscilador_vlg_vec_tst();
 // constants                                           
 // general purpose registers
+reg afinar;
 reg clock;
-reg entrada;
+reg enable;
+reg up_down;
 // wires                                               
-wire afinado;
-wire afrouxe_muito;
-wire afrouxe_pouco;
-wire aperte_muito;
-wire aperte_pouco;
-wire [19:0] saida_2;
+wire [19:0] counter0_saida;
+wire [19:0] counter2_saida;
+wire ddd_q;
+wire saida;
 
 wire sampler;                             
 
 // assign statements (if any)                          
-afinador_violao i1 (
+oscilador i1 (
 // port map - connection between master ports and signals/registers   
-	.afinado(afinado),
-	.afrouxe_muito(afrouxe_muito),
-	.afrouxe_pouco(afrouxe_pouco),
-	.aperte_muito(aperte_muito),
-	.aperte_pouco(aperte_pouco),
+	.afinar(afinar),
 	.clock(clock),
-	.entrada(entrada),
-	.saida_2(saida_2)
+	.counter0_saida(counter0_saida),
+	.counter2_saida(counter2_saida),
+	.ddd_q(ddd_q),
+	.enable(enable),
+	.saida(saida),
+	.up_down(up_down)
 );
+
+// afinar
+initial
+begin
+	afinar = 1'b0;
+end 
 
 // clock
 always
@@ -663,31 +960,39 @@ begin
 	#50;
 end 
 
-// entrada
+// enable
 initial
 begin
-	repeat(30)
-	begin
-		entrada = 1'b0;
-		entrada = #16667 1'b1;
-		# 16666;
-	end
-	entrada = 1'b0;
+	enable = 1'b1;
 end 
 
-afinador_violao_vlg_sample_tst tb_sample (
+// up_down
+initial
+begin
+	up_down = 1'b1;
+	# 10000;
+	repeat(49)
+	begin
+		up_down = 1'b0;
+		up_down = #10000 1'b1;
+		# 10000;
+	end
+	up_down = 1'b0;
+end 
+
+oscilador_vlg_sample_tst tb_sample (
+	.afinar(afinar),
 	.clock(clock),
-	.entrada(entrada),
+	.enable(enable),
+	.up_down(up_down),
 	.sampler_tx(sampler)
 );
 
-afinador_violao_vlg_check_tst tb_out(
-	.afinado(afinado),
-	.afrouxe_muito(afrouxe_muito),
-	.afrouxe_pouco(afrouxe_pouco),
-	.aperte_muito(aperte_muito),
-	.aperte_pouco(aperte_pouco),
-	.saida_2(saida_2),
+oscilador_vlg_check_tst tb_out(
+	.counter0_saida(counter0_saida),
+	.counter2_saida(counter2_saida),
+	.ddd_q(ddd_q),
+	.saida(saida),
 	.sampler_rx(sampler)
 );
 endmodule

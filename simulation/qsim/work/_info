@@ -17,13 +17,12 @@ r1
 31
 Z9 !s90 -work|work|afinador_violao.vo|
 Z10 o-work work -O0
-!i10b 1
-!s85 0
 Z11 !s108 1719931910.358000
 Z12 !s107 afinador_violao.vo|
+!i10b 1
+!s85 0
 !s101 -O0
 vafinador_violao_vlg_check_tst
-!i10b 1
 Z13 !s100 3;;G>d0:ok55lm^lzUb2n0
 Z14 IJYaPQ`l04`WzVOnW71Pz;1
 Z15 VTEn`CXfkkJM^Ug>e;3UOg1
@@ -34,15 +33,15 @@ Z18 Fafinador_violao.vt
 L0 59
 R8
 r1
-!s85 0
 31
 Z19 !s108 1719931910.429000
 Z20 !s107 afinador_violao.vt|
 Z21 !s90 -work|work|afinador_violao.vt|
-!s101 -O0
 R10
-vafinador_violao_vlg_sample_tst
 !i10b 1
+!s85 0
+!s101 -O0
+vafinador_violao_vlg_sample_tst
 Z22 !s100 lRYk4?REBbGCckaXDiLFP1
 Z23 If;ed?Gdo9:XVeZU@N=L`f3
 Z24 VkdcQR0>Z^ZYdLPY446gGZ2
@@ -53,29 +52,106 @@ R18
 L0 29
 R8
 r1
-!s85 0
 31
 R19
 R20
 R21
-!s101 -O0
 R10
-vafinador_violao_vlg_vec_tst
 !i10b 1
-!s100 DGa9PniF8225L3ab7MO=T3
-I2AZ6eom;geF1BJbd6OzMV0
-Z25 V[?UGl8CX25dBSN8WPA_S?1
+!s85 0
+!s101 -O0
+vafinador_violao_vlg_vec_tst
+Z25 I2AZ6eom;geF1BJbd6OzMV0
+Z26 V[?UGl8CX25dBSN8WPA_S?1
 R4
 R16
 R17
 R18
-Z26 L0 262
+Z27 L0 262
+R8
+r1
+31
+R19
+R20
+R21
+R10
+Z28 !s100 DGa9PniF8225L3ab7MO=T3
+!i10b 1
+!s85 0
+!s101 -O0
+voscilador
+Z29 IH6llzlgdJU7TFmZg;`1:_2
+Z30 VemZ^_3EdFCMQjlD];0KC_2
+Z31 dC:\Users\Joao\Desktop\VIOLAO\afinador-violao\simulation\qsim
+Z32 w1720128147
+R6
+R7
+L0 31
+R8
+r1
+31
+R9
+R10
+!i10b 1
+Z33 !s100 fXG^:niEXOVc5fzPcS28H2
+!s85 0
+Z34 !s108 1720128149.351000
+R12
+!s101 -O0
+voscilador_vlg_check_tst
+!i10b 1
+!s100 7_1WjS8ZhMPV?o@JV_z9W3
+IcWigfCS>P@2j4GAGnl8ZN3
+VmlIZzAd>Ic=<m5;I]2^GP1
+R31
+Z35 w1720128146
+R17
+R18
+L0 63
 R8
 r1
 !s85 0
 31
-R19
-R20
+Z36 !s108 1720128149.450000
+Z37 !s107 afinador_violao.vt|
+R21
+!s101 -O0
+R10
+voscilador_vlg_sample_tst
+!i10b 1
+Z38 !s100 fd9i@^3U_2[OBJQGfc2aL2
+Z39 I7>JYjclEYMYHD5Ufkg<=o1
+Z40 VKXM^1OoRom7j@?2963>8F0
+R31
+R35
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R36
+R37
+R21
+!s101 -O0
+R10
+voscilador_vlg_vec_tst
+!i10b 1
+!s100 M25gj4XN0z1e]04SkQfZO3
+IekaWH=:YEgkn@UR^UXHF]3
+Z41 VJHOP<bDjGhM:aT1gDTa2g1
+R31
+R35
+R17
+R18
+L0 921
+R8
+r1
+!s85 0
+31
+R36
+R37
 R21
 !s101 -O0
 R10

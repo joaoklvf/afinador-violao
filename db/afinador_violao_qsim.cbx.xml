@@ -1,9 +1,8 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="afinador_violao_qsim">
-		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_jfj.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_ecj.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_9cj.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|afinador_violao|lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_efj.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|oscilador|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component" CBX_FILE_NAME="cmpr_0mg.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|oscilador|lpm_counter0:inst|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_v2j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|oscilador|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_38i.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

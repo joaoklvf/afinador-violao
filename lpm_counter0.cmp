@@ -18,6 +18,7 @@ component lpm_counter0
 	(
 		clock		: IN STD_LOGIC ;
 		cnt_en		: IN STD_LOGIC ;
+		sset		: IN STD_LOGIC ;
 		updown		: IN STD_LOGIC ;
 		q		: OUT STD_LOGIC_VECTOR (19 DOWNTO 0)
 	);
