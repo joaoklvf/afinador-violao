@@ -2,38 +2,38 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module oscilador
+# -- Compiling module afinador_violao
 # 
 # Top level modules:
-# 	oscilador
+# 	afinador_violao
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module oscilador_vlg_sample_tst
-# -- Compiling module oscilador_vlg_check_tst
-# -- Compiling module oscilador_vlg_vec_tst
+# -- Compiling module afinador_violao_vlg_sample_tst
+# -- Compiling module afinador_violao_vlg_check_tst
+# -- Compiling module afinador_violao_vlg_vec_tst
 # 
 # Top level modules:
-# 	oscilador_vlg_vec_tst
-# vsim -L cycloneive_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.oscilador_vlg_vec_tst 
-# Loading work.oscilador_vlg_vec_tst
-# Loading work.oscilador
-# Loading cycloneive_ver.cycloneive_lcell_comb
-# Loading cycloneive_ver.cycloneive_io_obuf
-# Loading cycloneive_ver.cycloneive_io_ibuf
-# Loading altera_ver.dffeas
-# Loading cycloneive_ver.cycloneive_clkctrl
-# Loading cycloneive_ver.cycloneive_mux41
-# Loading cycloneive_ver.cycloneive_ena_reg
-# Loading work.oscilador_vlg_sample_tst
-# Loading work.oscilador_vlg_check_tst
+# 	afinador_violao_vlg_vec_tst
+# vsim -L cycloneii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate -c -t 1ps -novopt work.afinador_violao_vlg_vec_tst 
+# Loading work.afinador_violao_vlg_vec_tst
+# Loading work.afinador_violao
+# Loading cycloneii_ver.cycloneii_lcell_ff
+# Loading cycloneii_ver.cycloneii_lcell_comb
+# Loading cycloneii_ver.cycloneii_io
+# Loading cycloneii_ver.cycloneii_mux21
+# Loading cycloneii_ver.cycloneii_dffe
+# Loading cycloneii_ver.cycloneii_asynch_io
+# Loading cycloneii_ver.cycloneii_clkctrl
+# Loading cycloneii_ver.cycloneii_mux41
+# Loading cycloneii_ver.cycloneii_ena_reg
+# Loading work.afinador_violao_vlg_sample_tst
+# Loading work.afinador_violao_vlg_check_tst
 # SDF 10.1d Compiler 2012.11 Nov  2 2012
 # 
 # Loading instances from afinador_violao_v.sdo
-# Loading altera_ver.PRIM_GDFF_LOW
+# Loading cycloneii_ver.CYCLONEII_PRIM_DFFE
 # Loading timing data from afinador_violao_v.sdo
 # ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
-#    Time: 0 ps  Iteration: 0  Instance: /oscilador_vlg_vec_tst File: afinador_violao.vt
-# ** Error: c:/altera/13.0sp1/modelsim_ase/win32aloem/../altera/verilog/src/altera_primitives.v(289): $hold( posedge clk &&& nosloadsclr:2278 ps, d:2362 ps, 186 ps );
-#    Time: 2362 ps  Iteration: 0  Instance: /oscilador_vlg_vec_tst/i1/inst1
+#    Time: 0 ps  Iteration: 0  Instance: /afinador_violao_vlg_vec_tst File: afinador_violao.vt
 # Simulation passed !
-# ** Note: $finish    : afinador_violao.vt(917)
-#    Time: 1 us  Iteration: 0  Instance: /oscilador_vlg_vec_tst/tb_out
+# ** Note: $finish    : afinador_violao.vt(291)
+#    Time: 1 us  Iteration: 0  Instance: /afinador_violao_vlg_vec_tst/tb_out

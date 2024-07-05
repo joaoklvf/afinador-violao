@@ -1,6 +1,5 @@
 set tool_name "ModelSim-Altera (Verilog)"
 set corner_file_list {
-	{{"Slow -7 1.2V 85 Model"} {afinador_violao_7_1200mv_85c_slow.vo afinador_violao_7_1200mv_85c_v_slow.sdo}}
-	{{"Slow -7 1.2V 0 Model"} {afinador_violao_7_1200mv_0c_slow.vo afinador_violao_7_1200mv_0c_v_slow.sdo}}
-	{{"Fast -M 1.2V 0 Model"} {afinador_violao_min_1200mv_0c_fast.vo afinador_violao_min_1200mv_0c_v_fast.sdo}}
+	{{"Slow Model"} {afinador_violao.vo afinador_violao_v.sdo}}
+	{{"Fast Model"} {afinador_violao_fast.vo afinador_violao_v_fast.sdo}}
 }

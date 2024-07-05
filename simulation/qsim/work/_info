@@ -4,154 +4,154 @@ K3
 cModel Technology
 Z0 dC:\Users\Joao\Desktop\afinador-violao\simulation\qsim
 vafinador_violao
-Z1 !s100 4_aZ8AoPP[V:l[J3A]62Q1
-Z2 ISJdf1=miDR>ShAiPJ>eLH0
-Z3 V8<GA3U[UbmS58a5Blf]OB2
-Z4 dC:\Users\Joao\Desktop\afinador-violao\simulation\qsim
-Z5 w1719931909
-Z6 8afinador_violao.vo
-Z7 Fafinador_violao.vo
+Z1 IU]K3CBNbAiR1JB8A84:GA1
+Z2 V1Zz`EGb9e[85^bzcid_kT3
+Z3 dC:\Users\Joao\Desktop\VIOLAO\afinador-violao\simulation\qsim
+Z4 w1720144399
+Z5 8afinador_violao.vo
+Z6 Fafinador_violao.vo
 L0 31
-Z8 OV;L;10.1d;51
+Z7 OV;L;10.1d;51
 r1
 31
-Z9 !s90 -work|work|afinador_violao.vo|
-Z10 o-work work -O0
-Z11 !s108 1719931910.358000
-Z12 !s107 afinador_violao.vo|
+Z8 !s90 -work|work|afinador_violao.vo|
+Z9 o-work work -O0
 !i10b 1
+Z10 !s100 [d6e>J5TVLegJkDj1M1hM1
 !s85 0
+Z11 !s108 1720144400.511000
+Z12 !s107 afinador_violao.vo|
 !s101 -O0
 vafinador_violao_vlg_check_tst
-Z13 !s100 3;;G>d0:ok55lm^lzUb2n0
-Z14 IJYaPQ`l04`WzVOnW71Pz;1
-Z15 VTEn`CXfkkJM^Ug>e;3UOg1
-R4
-Z16 w1719931908
-Z17 8afinador_violao.vt
-Z18 Fafinador_violao.vt
-L0 59
-R8
-r1
-31
-Z19 !s108 1719931910.429000
-Z20 !s107 afinador_violao.vt|
-Z21 !s90 -work|work|afinador_violao.vt|
-R10
 !i10b 1
-!s85 0
-!s101 -O0
-vafinador_violao_vlg_sample_tst
-Z22 !s100 lRYk4?REBbGCckaXDiLFP1
-Z23 If;ed?Gdo9:XVeZU@N=L`f3
-Z24 VkdcQR0>Z^ZYdLPY446gGZ2
-R4
-R16
-R17
-R18
-L0 29
-R8
-r1
-31
-R19
-R20
-R21
-R10
-!i10b 1
-!s85 0
-!s101 -O0
-vafinador_violao_vlg_vec_tst
-Z25 I2AZ6eom;geF1BJbd6OzMV0
-Z26 V[?UGl8CX25dBSN8WPA_S?1
-R4
-R16
-R17
-R18
-Z27 L0 262
-R8
-r1
-31
-R19
-R20
-R21
-R10
-Z28 !s100 DGa9PniF8225L3ab7MO=T3
-!i10b 1
-!s85 0
-!s101 -O0
-voscilador
-Z29 IH6llzlgdJU7TFmZg;`1:_2
-Z30 VemZ^_3EdFCMQjlD];0KC_2
-Z31 dC:\Users\Joao\Desktop\VIOLAO\afinador-violao\simulation\qsim
-Z32 w1720128147
-R6
+!s100 ZIMNKEX`SB8o9n?N<daEM0
+IQ=G=>_oGQC@D_Bc?n4jTU0
+V`<WMU=e??_@8FOKN[88W13
+R3
+Z13 w1720144398
+Z14 8afinador_violao.vt
+Z15 Fafinador_violao.vt
+L0 65
 R7
+r1
+!s85 0
+31
+Z16 !s108 1720144400.617000
+Z17 !s107 afinador_violao.vt|
+Z18 !s90 -work|work|afinador_violao.vt|
+!s101 -O0
+R9
+vafinador_violao_vlg_sample_tst
+!i10b 1
+!s100 [^1H38>DV80o2nKk;5_YI3
+IM1[b_m3fD@ocGS96P0Nb>3
+VVNIOHOQ>9LC84EFiM^<f<1
+R3
+R13
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R9
+vafinador_violao_vlg_vec_tst
+!i10b 1
+!s100 I[PNn77nY[oN0^FSXTaWU3
+I5WeG:D9ghGfF4NeG;i^`=3
+Z19 V[?UGl8CX25dBSN8WPA_S?1
+R3
+R13
+R14
+R15
+L0 295
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R9
+voscilador
+Z20 IH6llzlgdJU7TFmZg;`1:_2
+Z21 VemZ^_3EdFCMQjlD];0KC_2
+R3
+Z22 w1720128147
+R5
+R6
 L0 31
-R8
+R7
 r1
 31
+R8
 R9
-R10
-!i10b 1
-Z33 !s100 fXG^:niEXOVc5fzPcS28H2
-!s85 0
-Z34 !s108 1720128149.351000
+Z23 !s100 fXG^:niEXOVc5fzPcS28H2
+Z24 !s108 1720128149.351000
 R12
+!i10b 1
+!s85 0
 !s101 -O0
 voscilador_vlg_check_tst
-!i10b 1
-!s100 7_1WjS8ZhMPV?o@JV_z9W3
-IcWigfCS>P@2j4GAGnl8ZN3
-VmlIZzAd>Ic=<m5;I]2^GP1
-R31
-Z35 w1720128146
-R17
-R18
+Z25 IcWigfCS>P@2j4GAGnl8ZN3
+Z26 VmlIZzAd>Ic=<m5;I]2^GP1
+R3
+Z27 w1720128146
+R14
+R15
 L0 63
-R8
+R7
 r1
-!s85 0
 31
-Z36 !s108 1720128149.450000
-Z37 !s107 afinador_violao.vt|
-R21
+Z28 !s108 1720128149.450000
+Z29 !s107 afinador_violao.vt|
+R18
+R9
+Z30 !s100 7_1WjS8ZhMPV?o@JV_z9W3
+!i10b 1
+!s85 0
 !s101 -O0
-R10
 voscilador_vlg_sample_tst
-!i10b 1
-Z38 !s100 fd9i@^3U_2[OBJQGfc2aL2
-Z39 I7>JYjclEYMYHD5Ufkg<=o1
-Z40 VKXM^1OoRom7j@?2963>8F0
-R31
-R35
-R17
-R18
+Z31 !s100 fd9i@^3U_2[OBJQGfc2aL2
+Z32 I7>JYjclEYMYHD5Ufkg<=o1
+Z33 VKXM^1OoRom7j@?2963>8F0
+R3
+R27
+R14
+R15
 L0 29
-R8
+R7
 r1
-!s85 0
 31
-R36
-R37
-R21
-!s101 -O0
-R10
-voscilador_vlg_vec_tst
-!i10b 1
-!s100 M25gj4XN0z1e]04SkQfZO3
-IekaWH=:YEgkn@UR^UXHF]3
-Z41 VJHOP<bDjGhM:aT1gDTa2g1
-R31
-R35
-R17
+R28
+R29
 R18
-L0 921
-R8
-r1
+R9
+!i10b 1
 !s85 0
-31
-R36
-R37
-R21
 !s101 -O0
-R10
+voscilador_vlg_vec_tst
+Z34 IekaWH=:YEgkn@UR^UXHF]3
+Z35 VJHOP<bDjGhM:aT1gDTa2g1
+R3
+R27
+R14
+R15
+Z36 L0 921
+R7
+r1
+31
+R28
+R29
+R18
+R9
+Z37 !s100 M25gj4XN0z1e]04SkQfZO3
+!i10b 1
+!s85 0
+!s101 -O0

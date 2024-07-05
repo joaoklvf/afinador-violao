@@ -1,5 +1,5 @@
 EDA Netlist Writer report for afinador_violao
-Thu Jul 04 18:23:53 2024
+Thu Jul 04 22:53:19 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,10 +36,10 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Thu Jul 04 18:23:53 2024 ;
+; EDA Netlist Writer Status ; Successful - Thu Jul 04 22:53:19 2024 ;
 ; Revision Name             ; afinador_violao                       ;
-; Top-level Entity Name     ; oscilador                             ;
-; Family                    ; Cyclone IV E                          ;
+; Top-level Entity Name     ; afinador_violao                       ;
+; Family                    ; Cyclone II                            ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
 
@@ -66,20 +66,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                ;
-+-----------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                           ;
-+-----------------------------------------------------------------------------------------------------------+
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_7_1200mv_85c_slow.vo     ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_7_1200mv_0c_slow.vo      ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_min_1200mv_0c_fast.vo    ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao.vo                       ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_7_1200mv_85c_v_slow.sdo  ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_7_1200mv_0c_v_slow.sdo   ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_min_1200mv_0c_v_fast.sdo ;
-; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_v.sdo                    ;
-+-----------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                  ;
++---------------------------------------------------------------------------------------------+
+; Generated Files                                                                             ;
++---------------------------------------------------------------------------------------------+
+; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao.vo         ;
+; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_fast.vo    ;
+; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_v.sdo      ;
+; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/afinador_violao_v_fast.sdo ;
++---------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -88,19 +84,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jul 04 18:23:52 2024
-Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off afinador_violao -c afinador_violao
-Info (204019): Generated file afinador_violao_7_1200mv_85c_slow.vo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao_7_1200mv_0c_slow.vo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao_min_1200mv_0c_fast.vo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao.vo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao_7_1200mv_85c_v_slow.sdo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao_7_1200mv_0c_v_slow.sdo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao_min_1200mv_0c_v_fast.sdo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file afinador_violao_v.sdo in folder "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
+    Info: Processing started: Thu Jul 04 22:53:18 2024
+Info: Command: quartus_eda --functional=off --timescale=1ps --simulation=on --tool=modelsim_oem --format=verilog afinador_violao -c afinador_violao
+Info (204026): Generated files "afinador_violao.vo", "afinador_violao_fast.vo", "afinador_violao_v.sdo" and "afinador_violao_v_fast.sdo" in directory "C:/Users/Joao/Desktop/VIOLAO/afinador-violao/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4518 megabytes
-    Info: Processing ended: Thu Jul 04 18:23:53 2024
+    Info: Peak virtual memory: 4532 megabytes
+    Info: Processing ended: Thu Jul 04 22:53:19 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

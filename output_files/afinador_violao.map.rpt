@@ -1,5 +1,5 @@
 Analysis & Synthesis report for afinador_violao
-Thu Jul 04 18:23:21 2024
+Thu Jul 04 22:50:26 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,12 +14,21 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component
- 11. Parameter Settings for User Entity Instance: lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component
- 12. Parameter Settings for User Entity Instance: lpm_counter0:inst|lpm_counter:LPM_COUNTER_component
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  9. State Machine - |afinador_violao|UC:inst|fstate
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component
+ 14. Parameter Settings for User Entity Instance: LPM_DFF:inst9
+ 15. Parameter Settings for User Entity Instance: oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component
+ 16. Parameter Settings for User Entity Instance: oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component
+ 17. Parameter Settings for User Entity Instance: oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component
+ 18. Parameter Settings for User Entity Instance: oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component
+ 19. Parameter Settings for User Entity Instance: lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component
+ 20. Parameter Settings for User Entity Instance: lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component
+ 21. Parameter Settings for User Entity Instance: lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +54,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jul 04 18:23:21 2024           ;
+; Analysis & Synthesis Status        ; Successful - Thu Jul 04 22:50:26 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; afinador_violao                                 ;
-; Top-level Entity Name              ; oscilador                                       ;
-; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 56                                              ;
-;     Total combinational functions  ; 56                                              ;
-;     Dedicated logic registers      ; 42                                              ;
-; Total registers                    ; 42                                              ;
-; Total pins                         ; 46                                              ;
+; Top-level Entity Name              ; afinador_violao                                 ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 163                                             ;
+;     Total combinational functions  ; 145                                             ;
+;     Dedicated logic registers      ; 102                                             ;
+; Total registers                    ; 102                                             ;
+; Total pins                         ; 11                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -67,9 +76,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; oscilador          ; afinador_violao    ;
-; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; afinador_violao    ; afinador_violao    ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                                ; Off                ; Off                ;
@@ -108,14 +117,12 @@ applicable agreement for further details.
 ; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
 ; Auto ROM Replacement                                                       ; On                 ; On                 ;
 ; Auto RAM Replacement                                                       ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
 ; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
 ; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
 ; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
 ; Strict RAM Replacement                                                     ; Off                ; Off                ;
 ; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
-; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
 ; Auto Resource Sharing                                                      ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
@@ -123,7 +130,7 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
 ; Report Parameter Settings                                                  ; On                 ; On                 ;
 ; Report Source Assignments                                                  ; On                 ; On                 ;
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
@@ -165,87 +172,145 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                              ; Library ;
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------+---------+
+; UC.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/UC.vhd                       ;         ;
+; contador_sem_overflow.vhd        ; yes             ; User VHDL File                     ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/contador_sem_overflow.vhd    ;         ;
+; afinador_violao.bdf              ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/afinador_violao.bdf          ;         ;
+; lpm_compare0.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare0.vhd             ;         ;
+; lpm_compare1.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare1.vhd             ;         ;
+; lpm_compare2.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare2.vhd             ;         ;
+; lpm_compare3.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare3.vhd             ;         ;
+; SaidasLed.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/SaidasLed.vhd                ;         ;
 ; lpm_counter0.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter0.vhd             ;         ;
 ; oscilador.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/oscilador.bdf                ;         ;
 ; lpm_counter2.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter2.vhd             ;         ;
 ; lpm_compare4.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare4.vhd             ;         ;
+; lpm_counter3.vhd                 ; yes             ; User Wizard-Generated File         ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter3.vhd             ;         ;
 ; lpm_compare.tdf                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.tdf         ;         ;
 ; comptree.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/comptree.inc            ;         ;
 ; altshift.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc            ;         ;
 ; aglobal130.inc                   ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc          ;         ;
-; db/cmpr_9ng.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_9ng.tdf              ;         ;
-; lpm_counter.tdf                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.tdf         ;         ;
+; db/cmpr_59j.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_59j.tdf              ;         ;
+; lpm_dff.tdf                      ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_dff.tdf             ;         ;
 ; lpm_constant.inc                 ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc        ;         ;
+; dffeea.inc                       ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/dffeea.inc              ;         ;
+; db/cmpr_ulg.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_ulg.tdf              ;         ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.tdf         ;         ;
 ; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
 ; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc         ;         ;
 ; cmpconst.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cmpconst.inc            ;         ;
 ; lpm_compare.inc                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc         ;         ;
 ; lpm_counter.inc                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc         ;         ;
-; dffeea.inc                       ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/dffeea.inc              ;         ;
 ; alt_counter_stratix.inc          ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/alt_counter_stratix.inc ;         ;
-; db/cntr_c9i.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cntr_c9i.tdf              ;         ;
-; db/cntr_84j.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cntr_84j.tdf              ;         ;
+; db/cntr_q4i.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cntr_q4i.tdf              ;         ;
+; db/cntr_dui.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cntr_dui.tdf              ;         ;
+; db/cntr_kmj.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cntr_kmj.tdf              ;         ;
+; db/cmpr_mdc.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_mdc.tdf              ;         ;
+; db/cmpr_09j.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_09j.tdf              ;         ;
+; db/cmpr_acj.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_acj.tdf              ;         ;
+; db/cmpr_5cj.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/db/cmpr_5cj.tdf              ;         ;
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 56          ;
-;                                             ;             ;
-; Total combinational functions               ; 56          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 13          ;
-;     -- 3 input functions                    ; 19          ;
-;     -- <=2 input functions                  ; 24          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 18          ;
-;     -- arithmetic mode                      ; 38          ;
-;                                             ;             ;
-; Total registers                             ; 42          ;
-;     -- Dedicated logic registers            ; 42          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 46          ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 41          ;
-; Total fan-out                               ; 409         ;
-; Average fan-out                             ; 2.15        ;
-+---------------------------------------------+-------------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimated Total logic elements              ; 163    ;
+;                                             ;        ;
+; Total combinational functions               ; 145    ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 34     ;
+;     -- 3 input functions                    ; 42     ;
+;     -- <=2 input functions                  ; 69     ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 49     ;
+;     -- arithmetic mode                      ; 96     ;
+;                                             ;        ;
+; Total registers                             ; 102    ;
+;     -- Dedicated logic registers            ; 102    ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 11     ;
+; Embedded Multiplier 9-bit elements          ; 0      ;
+; Maximum fan-out node                        ; clock9 ;
+; Maximum fan-out                             ; 41     ;
+; Total fan-out                               ; 759    ;
+; Average fan-out                             ; 2.94   ;
++---------------------------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                            ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                     ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------+--------------+
-; |oscilador                                ; 56 (2)            ; 42 (2)       ; 0           ; 0            ; 0       ; 0         ; 46   ; 0            ; |oscilador                                                                              ; work         ;
-;    |lpm_compare4:inst5|                   ; 13 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_compare4:inst5                                                           ; work         ;
-;       |lpm_compare:LPM_COMPARE_component| ; 13 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component                         ; work         ;
-;          |cmpr_9ng:auto_generated|        ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component|cmpr_9ng:auto_generated ; work         ;
-;    |lpm_counter0:inst|                    ; 21 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_counter0:inst                                                            ; work         ;
-;       |lpm_counter:LPM_COUNTER_component| ; 21 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_counter0:inst|lpm_counter:LPM_COUNTER_component                          ; work         ;
-;          |cntr_84j:auto_generated|        ; 21 (21)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_counter0:inst|lpm_counter:LPM_COUNTER_component|cntr_84j:auto_generated  ; work         ;
-;    |lpm_counter2:inst6|                   ; 20 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_counter2:inst6                                                           ; work         ;
-;       |lpm_counter:LPM_COUNTER_component| ; 20 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component                         ; work         ;
-;          |cntr_c9i:auto_generated|        ; 20 (20)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |oscilador|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component|cntr_c9i:auto_generated ; work         ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                   ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                         ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+--------------+
+; |afinador_violao                             ; 145 (1)           ; 102 (0)      ; 0           ; 0            ; 0       ; 0         ; 11   ; 0            ; |afinador_violao                                                                                                            ; work         ;
+;    |UC:inst|                                 ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|UC:inst                                                                                                    ; work         ;
+;    |contador_sem_overflow:inst1|             ; 27 (27)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|contador_sem_overflow:inst1                                                                                ; work         ;
+;    |lpm_compare0:inst2|                      ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_compare0:inst2                                                                                         ; work         ;
+;       |lpm_compare:LPM_COMPARE_component|    ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component                                                       ; work         ;
+;          |cmpr_acj:auto_generated|           ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component|cmpr_acj:auto_generated                               ; work         ;
+;    |lpm_compare3:inst7|                      ; 5 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_compare3:inst7                                                                                         ; work         ;
+;       |lpm_compare:LPM_COMPARE_component|    ; 5 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component                                                       ; work         ;
+;          |cmpr_5cj:auto_generated|           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component|cmpr_5cj:auto_generated                               ; work         ;
+;    |lpm_dff:inst9|                           ; 0 (0)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|lpm_dff:inst9                                                                                              ; work         ;
+;    |oscilador:inst8|                         ; 104 (2)           ; 62 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8                                                                                            ; work         ;
+;       |lpm_compare4:inst5|                   ; 34 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_compare4:inst5                                                                         ; work         ;
+;          |lpm_compare:LPM_COMPARE_component| ; 34 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component                                       ; work         ;
+;             |cmpr_ulg:auto_generated|        ; 34 (34)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component|cmpr_ulg:auto_generated               ; work         ;
+;       |lpm_counter0:inst7|                   ; 20 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter0:inst7                                                                         ; work         ;
+;          |lpm_counter:LPM_COUNTER_component| ; 20 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component                                       ; work         ;
+;             |cntr_dui:auto_generated|        ; 20 (20)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component|cntr_dui:auto_generated               ; work         ;
+;       |lpm_counter2:inst6|                   ; 20 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter2:inst6                                                                         ; work         ;
+;          |lpm_counter:LPM_COUNTER_component| ; 20 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component                                       ; work         ;
+;             |cntr_q4i:auto_generated|        ; 20 (20)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component|cntr_q4i:auto_generated               ; work         ;
+;       |lpm_counter3:inst|                    ; 28 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter3:inst                                                                          ; work         ;
+;          |lpm_counter:LPM_COUNTER_component| ; 28 (0)            ; 20 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component                                        ; work         ;
+;             |cntr_kmj:auto_generated|        ; 28 (22)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component|cntr_kmj:auto_generated                ; work         ;
+;                |cmpr_mdc:cmpr2|              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |afinador_violao|oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component|cntr_kmj:auto_generated|cmpr_mdc:cmpr2 ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                         ;
-+--------+--------------+---------+--------------+--------------+-------------------------------+---------------------------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance               ; IP Include File                                               ;
-+--------+--------------+---------+--------------+--------------+-------------------------------+---------------------------------------------------------------+
-; Altera ; LPM_COUNTER  ; 13.0    ; N/A          ; N/A          ; |oscilador|lpm_counter0:inst  ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter0.vhd ;
-; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |oscilador|lpm_compare4:inst5 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare4.vhd ;
-; Altera ; LPM_COUNTER  ; 13.0    ; N/A          ; N/A          ; |oscilador|lpm_counter2:inst6 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter2.vhd ;
-+--------+--------------+---------+--------------+--------------+-------------------------------+---------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                               ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------+---------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                     ; IP Include File                                               ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------+---------------------------------------------------------------+
+; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|lpm_compare0:inst2                 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare0.vhd ;
+; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|lpm_compare1:inst5                 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare1.vhd ;
+; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|lpm_compare2:inst6                 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare2.vhd ;
+; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|lpm_compare3:inst7                 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare3.vhd ;
+; Altera ; LPM_COUNTER  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|oscilador:inst8|lpm_counter3:inst  ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter3.vhd ;
+; Altera ; LPM_COMPARE  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|oscilador:inst8|lpm_compare4:inst5 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_compare4.vhd ;
+; Altera ; LPM_COUNTER  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|oscilador:inst8|lpm_counter2:inst6 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter2.vhd ;
+; Altera ; LPM_COUNTER  ; 13.0    ; N/A          ; N/A          ; |afinador_violao|oscilador:inst8|lpm_counter0:inst7 ; C:/Users/Joao/Desktop/VIOLAO/afinador-violao/lpm_counter0.vhd ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------+---------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------+
+; State Machine - |afinador_violao|UC:inst|fstate               ;
++---------------+---------------+---------------+---------------+
+; Name          ; fstate.state3 ; fstate.state2 ; fstate.state1 ;
++---------------+---------------+---------------+---------------+
+; fstate.state1 ; 0             ; 0             ; 0             ;
+; fstate.state2 ; 0             ; 1             ; 1             ;
+; fstate.state3 ; 1             ; 0             ; 1             ;
++---------------+---------------+---------------+---------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; lpm_dff:inst9|dffs[0,1]               ; Lost fanout        ;
+; UC:inst|fstate.state3                 ; Lost fanout        ;
+; Total Number of Removed Registers = 3 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -253,91 +318,240 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 42    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 102   ;
+; Number of registers using Synchronous Clear  ; 20    ;
 ; Number of registers using Synchronous Load   ; 40    ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 20    ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |afinador_violao|contador_sem_overflow:inst1|internal_count[19] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component ;
-+------------------------+--------------+-----------------------------------------------------------+
-; Parameter Name         ; Value        ; Type                                                      ;
-+------------------------+--------------+-----------------------------------------------------------+
-; lpm_width              ; 20           ; Signed Integer                                            ;
-; LPM_REPRESENTATION     ; UNSIGNED     ; Untyped                                                   ;
-; LPM_PIPELINE           ; 0            ; Untyped                                                   ;
-; CHAIN_SIZE             ; 8            ; Untyped                                                   ;
-; ONE_INPUT_IS_CONSTANT  ; NO           ; Untyped                                                   ;
-; CARRY_CHAIN            ; MANUAL       ; Untyped                                                   ;
-; CASCADE_CHAIN          ; MANUAL       ; Untyped                                                   ;
-; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                        ;
-; CASCADE_CHAIN_LENGTH   ; 2            ; CASCADE_CHAIN_LENGTH                                      ;
-; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                   ;
-; CBXI_PARAMETER         ; cmpr_9ng     ; Untyped                                                   ;
-; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                ;
-; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                              ;
-; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                              ;
-; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                            ;
-+------------------------+--------------+-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component ;
++------------------------+------------+-------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                        ;
++------------------------+------------+-------------------------------------------------------------+
+; lpm_width              ; 20         ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; UNSIGNED   ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                     ;
+; CHAIN_SIZE             ; 8          ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; YES        ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                                     ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                                          ;
+; CASCADE_CHAIN_LENGTH   ; 2          ; CASCADE_CHAIN_LENGTH                                        ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                     ;
+; CBXI_PARAMETER         ; cmpr_59j   ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                              ;
++------------------------+------------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_DFF:inst9 ;
++------------------------+------------+----------------------+
+; Parameter Name         ; Value      ; Type                 ;
++------------------------+------------+----------------------+
+; LPM_WIDTH              ; 20         ; Untyped              ;
+; LPM_AVALUE             ; 0          ; Untyped              ;
+; LPM_SVALUE             ; 0          ; Untyped              ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped              ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE       ;
++------------------------+------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component ;
++------------------------+------------+-----------------------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                                        ;
++------------------------+------------+-----------------------------------------------------------------------------+
+; lpm_width              ; 20         ; Signed Integer                                                              ;
+; LPM_REPRESENTATION     ; UNSIGNED   ; Untyped                                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                                     ;
+; CHAIN_SIZE             ; 8          ; Untyped                                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; NO         ; Untyped                                                                     ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                                                     ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                                                          ;
+; CASCADE_CHAIN_LENGTH   ; 2          ; CASCADE_CHAIN_LENGTH                                                        ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                                     ;
+; CBXI_PARAMETER         ; cmpr_ulg   ; Untyped                                                                     ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                                              ;
++------------------------+------------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component ;
++------------------------+-------------+----------------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                       ;
++------------------------+-------------+----------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                               ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                             ;
+; LPM_WIDTH              ; 20          ; Signed Integer                                                             ;
+; LPM_DIRECTION          ; UP          ; Untyped                                                                    ;
+; LPM_MODULUS            ; 0           ; Untyped                                                                    ;
+; LPM_AVALUE             ; UNUSED      ; Untyped                                                                    ;
+; LPM_SVALUE             ; UNUSED      ; Untyped                                                                    ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED ; Untyped                                                                    ;
+; DEVICE_FAMILY          ; Cyclone II  ; Untyped                                                                    ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                                    ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                         ;
+; NOT_GATE_PUSH_BACK     ; ON          ; NOT_GATE_PUSH_BACK                                                         ;
+; CARRY_CNT_EN           ; SMART       ; Untyped                                                                    ;
+; LABWIDE_SCLR           ; ON          ; Untyped                                                                    ;
+; USE_NEW_VERSION        ; TRUE        ; Untyped                                                                    ;
+; CBXI_PARAMETER         ; cntr_q4i    ; Untyped                                                                    ;
++------------------------+-------------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component ;
++------------------------+------------+-----------------------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                                        ;
++------------------------+------------+-----------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                                              ;
+; LPM_WIDTH              ; 20         ; Signed Integer                                                              ;
+; LPM_DIRECTION          ; DEFAULT    ; Untyped                                                                     ;
+; LPM_MODULUS            ; 0          ; Untyped                                                                     ;
+; LPM_AVALUE             ; 163821     ; Untyped                                                                     ;
+; LPM_SVALUE             ; UNUSED     ; Untyped                                                                     ;
+; LPM_PORT_UPDOWN        ; PORT_USED  ; Untyped                                                                     ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                                     ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                                                          ;
+; NOT_GATE_PUSH_BACK     ; ON         ; NOT_GATE_PUSH_BACK                                                          ;
+; CARRY_CNT_EN           ; SMART      ; Untyped                                                                     ;
+; LABWIDE_SCLR           ; ON         ; Untyped                                                                     ;
+; USE_NEW_VERSION        ; TRUE       ; Untyped                                                                     ;
+; CBXI_PARAMETER         ; cntr_dui   ; Untyped                                                                     ;
++------------------------+------------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component ;
++------------------------+-------------+---------------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                      ;
++------------------------+-------------+---------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                            ;
+; LPM_WIDTH              ; 20          ; Signed Integer                                                            ;
+; LPM_DIRECTION          ; UP          ; Untyped                                                                   ;
+; LPM_MODULUS            ; 500000      ; Signed Integer                                                            ;
+; LPM_AVALUE             ; UNUSED      ; Untyped                                                                   ;
+; LPM_SVALUE             ; UNUSED      ; Untyped                                                                   ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED ; Untyped                                                                   ;
+; DEVICE_FAMILY          ; Cyclone II  ; Untyped                                                                   ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                                   ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                        ;
+; NOT_GATE_PUSH_BACK     ; ON          ; NOT_GATE_PUSH_BACK                                                        ;
+; CARRY_CNT_EN           ; SMART       ; Untyped                                                                   ;
+; LABWIDE_SCLR           ; ON          ; Untyped                                                                   ;
+; USE_NEW_VERSION        ; TRUE        ; Untyped                                                                   ;
+; CBXI_PARAMETER         ; cntr_kmj    ; Untyped                                                                   ;
++------------------------+-------------+---------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component ;
-+------------------------+--------------+-----------------------------------------------------------+
-; Parameter Name         ; Value        ; Type                                                      ;
-+------------------------+--------------+-----------------------------------------------------------+
-; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                ;
-; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                              ;
-; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                              ;
-; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                            ;
-; LPM_WIDTH              ; 20           ; Signed Integer                                            ;
-; LPM_DIRECTION          ; UP           ; Untyped                                                   ;
-; LPM_MODULUS            ; 0            ; Untyped                                                   ;
-; LPM_AVALUE             ; UNUSED       ; Untyped                                                   ;
-; LPM_SVALUE             ; UNUSED       ; Untyped                                                   ;
-; LPM_PORT_UPDOWN        ; PORT_UNUSED  ; Untyped                                                   ;
-; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                   ;
-; CARRY_CHAIN            ; MANUAL       ; Untyped                                                   ;
-; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                        ;
-; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                                        ;
-; CARRY_CNT_EN           ; SMART        ; Untyped                                                   ;
-; LABWIDE_SCLR           ; ON           ; Untyped                                                   ;
-; USE_NEW_VERSION        ; TRUE         ; Untyped                                                   ;
-; CBXI_PARAMETER         ; cntr_c9i     ; Untyped                                                   ;
-+------------------------+--------------+-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component ;
++------------------------+------------+-------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                        ;
++------------------------+------------+-------------------------------------------------------------+
+; lpm_width              ; 20         ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; UNSIGNED   ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                     ;
+; CHAIN_SIZE             ; 8          ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; YES        ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                                     ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                                          ;
+; CASCADE_CHAIN_LENGTH   ; 2          ; CASCADE_CHAIN_LENGTH                                        ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                     ;
+; CBXI_PARAMETER         ; cmpr_09j   ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                              ;
++------------------------+------------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lpm_counter0:inst|lpm_counter:LPM_COUNTER_component ;
-+------------------------+--------------+----------------------------------------------------------+
-; Parameter Name         ; Value        ; Type                                                     ;
-+------------------------+--------------+----------------------------------------------------------+
-; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                               ;
-; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                             ;
-; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                             ;
-; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                           ;
-; LPM_WIDTH              ; 20           ; Signed Integer                                           ;
-; LPM_DIRECTION          ; DEFAULT      ; Untyped                                                  ;
-; LPM_MODULUS            ; 0            ; Untyped                                                  ;
-; LPM_AVALUE             ; UNUSED       ; Untyped                                                  ;
-; LPM_SVALUE             ; 163835       ; Untyped                                                  ;
-; LPM_PORT_UPDOWN        ; PORT_USED    ; Untyped                                                  ;
-; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                  ;
-; CARRY_CHAIN            ; MANUAL       ; Untyped                                                  ;
-; CARRY_CHAIN_LENGTH     ; 48           ; CARRY_CHAIN_LENGTH                                       ;
-; NOT_GATE_PUSH_BACK     ; ON           ; NOT_GATE_PUSH_BACK                                       ;
-; CARRY_CNT_EN           ; SMART        ; Untyped                                                  ;
-; LABWIDE_SCLR           ; ON           ; Untyped                                                  ;
-; USE_NEW_VERSION        ; TRUE         ; Untyped                                                  ;
-; CBXI_PARAMETER         ; cntr_84j     ; Untyped                                                  ;
-+------------------------+--------------+----------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component ;
++------------------------+------------+-------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                        ;
++------------------------+------------+-------------------------------------------------------------+
+; lpm_width              ; 20         ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; UNSIGNED   ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                     ;
+; CHAIN_SIZE             ; 8          ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; YES        ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                                     ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                                          ;
+; CASCADE_CHAIN_LENGTH   ; 2          ; CASCADE_CHAIN_LENGTH                                        ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                     ;
+; CBXI_PARAMETER         ; cmpr_acj   ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                              ;
++------------------------+------------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component ;
++------------------------+------------+-------------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                        ;
++------------------------+------------+-------------------------------------------------------------+
+; lpm_width              ; 20         ; Signed Integer                                              ;
+; LPM_REPRESENTATION     ; UNSIGNED   ; Untyped                                                     ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                     ;
+; CHAIN_SIZE             ; 8          ; Untyped                                                     ;
+; ONE_INPUT_IS_CONSTANT  ; YES        ; Untyped                                                     ;
+; CARRY_CHAIN            ; MANUAL     ; Untyped                                                     ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                     ;
+; CARRY_CHAIN_LENGTH     ; 48         ; CARRY_CHAIN_LENGTH                                          ;
+; CASCADE_CHAIN_LENGTH   ; 2          ; CASCADE_CHAIN_LENGTH                                        ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                     ;
+; CBXI_PARAMETER         ; cmpr_5cj   ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                              ;
++------------------------+------------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -356,7 +570,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jul 04 18:23:18 2024
+    Info: Processing started: Thu Jul 04 22:50:22 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off afinador_violao -c afinador_violao
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
@@ -399,51 +613,125 @@ Info (12021): Found 2 design units, including 1 entities, in source file lpm_cou
 Info (12021): Found 2 design units, including 1 entities, in source file lpm_compare4.vhd
     Info (12022): Found design unit 1: lpm_compare4-SYN
     Info (12023): Found entity 1: lpm_compare4
-Info (12127): Elaborating entity "oscilador" for the top level hierarchy
-Info (12128): Elaborating entity "lpm_compare4" for hierarchy "lpm_compare4:inst5"
-Info (12128): Elaborating entity "lpm_compare" for hierarchy "lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component"
-Info (12130): Elaborated megafunction instantiation "lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component"
-Info (12133): Instantiated megafunction "lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component" with the following parameter:
+Info (12021): Found 2 design units, including 1 entities, in source file lpm_counter3.vhd
+    Info (12022): Found design unit 1: lpm_counter3-SYN
+    Info (12023): Found entity 1: lpm_counter3
+Info (12127): Elaborating entity "afinador_violao" for the top level hierarchy
+Info (12128): Elaborating entity "lpm_compare1" for hierarchy "lpm_compare1:inst5"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component"
+Info (12130): Elaborated megafunction instantiation "lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component"
+Info (12133): Instantiated megafunction "lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component" with the following parameter:
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES"
     Info (12134): Parameter "lpm_representation" = "UNSIGNED"
     Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
     Info (12134): Parameter "lpm_width" = "20"
-Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_9ng.tdf
-    Info (12023): Found entity 1: cmpr_9ng
-Info (12128): Elaborating entity "cmpr_9ng" for hierarchy "lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component|cmpr_9ng:auto_generated"
-Info (12128): Elaborating entity "lpm_counter2" for hierarchy "lpm_counter2:inst6"
-Info (12128): Elaborating entity "lpm_counter" for hierarchy "lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component"
-Info (12130): Elaborated megafunction instantiation "lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component"
-Info (12133): Instantiated megafunction "lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component" with the following parameter:
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_59j.tdf
+    Info (12023): Found entity 1: cmpr_59j
+Info (12128): Elaborating entity "cmpr_59j" for hierarchy "lpm_compare1:inst5|lpm_compare:LPM_COMPARE_component|cmpr_59j:auto_generated"
+Info (12128): Elaborating entity "LPM_DFF" for hierarchy "LPM_DFF:inst9"
+Info (12130): Elaborated megafunction instantiation "LPM_DFF:inst9"
+Info (12133): Instantiated megafunction "LPM_DFF:inst9" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTH" = "20"
+Info (12128): Elaborating entity "UC" for hierarchy "UC:inst"
+Info (12128): Elaborating entity "oscilador" for hierarchy "oscilador:inst8"
+Info (12128): Elaborating entity "lpm_compare4" for hierarchy "oscilador:inst8|lpm_compare4:inst5"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component"
+Info (12130): Elaborated megafunction instantiation "oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component"
+Info (12133): Instantiated megafunction "oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component" with the following parameter:
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "20"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_ulg.tdf
+    Info (12023): Found entity 1: cmpr_ulg
+Info (12128): Elaborating entity "cmpr_ulg" for hierarchy "oscilador:inst8|lpm_compare4:inst5|lpm_compare:LPM_COMPARE_component|cmpr_ulg:auto_generated"
+Info (12128): Elaborating entity "lpm_counter2" for hierarchy "oscilador:inst8|lpm_counter2:inst6"
+Info (12128): Elaborating entity "lpm_counter" for hierarchy "oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component"
+Info (12130): Elaborated megafunction instantiation "oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component"
+Info (12133): Instantiated megafunction "oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component" with the following parameter:
     Info (12134): Parameter "lpm_direction" = "UP"
     Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
     Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
     Info (12134): Parameter "lpm_width" = "20"
-Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_c9i.tdf
-    Info (12023): Found entity 1: cntr_c9i
-Info (12128): Elaborating entity "cntr_c9i" for hierarchy "lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component|cntr_c9i:auto_generated"
-Info (12128): Elaborating entity "lpm_counter0" for hierarchy "lpm_counter0:inst"
-Info (12128): Elaborating entity "lpm_counter" for hierarchy "lpm_counter0:inst|lpm_counter:LPM_COUNTER_component"
-Info (12130): Elaborated megafunction instantiation "lpm_counter0:inst|lpm_counter:LPM_COUNTER_component"
-Info (12133): Instantiated megafunction "lpm_counter0:inst|lpm_counter:LPM_COUNTER_component" with the following parameter:
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_q4i.tdf
+    Info (12023): Found entity 1: cntr_q4i
+Info (12128): Elaborating entity "cntr_q4i" for hierarchy "oscilador:inst8|lpm_counter2:inst6|lpm_counter:LPM_COUNTER_component|cntr_q4i:auto_generated"
+Info (12128): Elaborating entity "lpm_counter0" for hierarchy "oscilador:inst8|lpm_counter0:inst7"
+Info (12128): Elaborating entity "lpm_counter" for hierarchy "oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component"
+Info (12130): Elaborated megafunction instantiation "oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component"
+Info (12133): Instantiated megafunction "oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component" with the following parameter:
+    Info (12134): Parameter "lpm_avalue" = "163821"
     Info (12134): Parameter "lpm_direction" = "UNUSED"
     Info (12134): Parameter "lpm_port_updown" = "PORT_USED"
-    Info (12134): Parameter "lpm_svalue" = "163835"
     Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
     Info (12134): Parameter "lpm_width" = "20"
-Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_84j.tdf
-    Info (12023): Found entity 1: cntr_84j
-Info (12128): Elaborating entity "cntr_84j" for hierarchy "lpm_counter0:inst|lpm_counter:LPM_COUNTER_component|cntr_84j:auto_generated"
-Info (286030): Timing-Driven Synthesis is running
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_dui.tdf
+    Info (12023): Found entity 1: cntr_dui
+Info (12128): Elaborating entity "cntr_dui" for hierarchy "oscilador:inst8|lpm_counter0:inst7|lpm_counter:LPM_COUNTER_component|cntr_dui:auto_generated"
+Info (12128): Elaborating entity "lpm_counter3" for hierarchy "oscilador:inst8|lpm_counter3:inst"
+Info (12128): Elaborating entity "lpm_counter" for hierarchy "oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component"
+Info (12130): Elaborated megafunction instantiation "oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component"
+Info (12133): Instantiated megafunction "oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component" with the following parameter:
+    Info (12134): Parameter "lpm_direction" = "UP"
+    Info (12134): Parameter "lpm_modulus" = "500000"
+    Info (12134): Parameter "lpm_port_updown" = "PORT_UNUSED"
+    Info (12134): Parameter "lpm_type" = "LPM_COUNTER"
+    Info (12134): Parameter "lpm_width" = "20"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_kmj.tdf
+    Info (12023): Found entity 1: cntr_kmj
+Info (12128): Elaborating entity "cntr_kmj" for hierarchy "oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component|cntr_kmj:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_mdc.tdf
+    Info (12023): Found entity 1: cmpr_mdc
+Info (12128): Elaborating entity "cmpr_mdc" for hierarchy "oscilador:inst8|lpm_counter3:inst|lpm_counter:LPM_COUNTER_component|cntr_kmj:auto_generated|cmpr_mdc:cmpr2"
+Info (12128): Elaborating entity "contador_sem_overflow" for hierarchy "contador_sem_overflow:inst1"
+Info (12128): Elaborating entity "lpm_compare2" for hierarchy "lpm_compare2:inst6"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component"
+Info (12130): Elaborated megafunction instantiation "lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component"
+Info (12133): Instantiated megafunction "lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component" with the following parameter:
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES"
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "20"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_09j.tdf
+    Info (12023): Found entity 1: cmpr_09j
+Info (12128): Elaborating entity "cmpr_09j" for hierarchy "lpm_compare2:inst6|lpm_compare:LPM_COMPARE_component|cmpr_09j:auto_generated"
+Info (12128): Elaborating entity "lpm_compare0" for hierarchy "lpm_compare0:inst2"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component"
+Info (12130): Elaborated megafunction instantiation "lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component"
+Info (12133): Instantiated megafunction "lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component" with the following parameter:
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES"
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "20"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_acj.tdf
+    Info (12023): Found entity 1: cmpr_acj
+Info (12128): Elaborating entity "cmpr_acj" for hierarchy "lpm_compare0:inst2|lpm_compare:LPM_COMPARE_component|cmpr_acj:auto_generated"
+Info (12128): Elaborating entity "lpm_compare3" for hierarchy "lpm_compare3:inst7"
+Info (12128): Elaborating entity "lpm_compare" for hierarchy "lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component"
+Info (12130): Elaborated megafunction instantiation "lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component"
+Info (12133): Instantiated megafunction "lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component" with the following parameter:
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=YES"
+    Info (12134): Parameter "lpm_representation" = "UNSIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_COMPARE"
+    Info (12134): Parameter "lpm_width" = "20"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_5cj.tdf
+    Info (12023): Found entity 1: cmpr_5cj
+Info (12128): Elaborating entity "cmpr_5cj" for hierarchy "lpm_compare3:inst7|lpm_compare:LPM_COMPARE_component|cmpr_5cj:auto_generated"
+Info (12128): Elaborating entity "SaidasLed" for hierarchy "SaidasLed:inst4"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "afinado" is stuck at GND
+    Warning (13410): Pin "afrouxe_pouco" is stuck at GND
+    Warning (13410): Pin "aperte_pouco" is stuck at GND
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 102 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 42 output pins
-    Info (21061): Implemented 56 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4632 megabytes
-    Info: Processing ended: Thu Jul 04 18:23:21 2024
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+Info (21057): Implemented 174 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 6 output pins
+    Info (21061): Implemented 163 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4655 megabytes
+    Info: Processing ended: Thu Jul 04 22:50:26 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
